@@ -1,0 +1,18 @@
+.modal {
+  opacity: 0;
+  transform: scale(.7);
+  transition: opacity 300ms ease-in, transform 300ms ease-in-out;
+  background-color: white;
+  padding: 20px;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,.16);
+}
+.modalOpen {
+  opacity: 1;
+  transform: scale(1);
+}
+.modalClose {
+  opacity: 0;
+  transform: scale(.7);
+}
