@@ -4,8 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { initializeWallet } from './state/wallet/wallet.actions';
+import { createRouter, injectUrlhub } from './router/router';
+import { routes } from "./router/routes";
 
 initializeWallet();
+
+const router = createRouter(routes);
+injectUrlhub(router);
 
 ReactDOM.render(
   <React.StrictMode>
