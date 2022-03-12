@@ -16,7 +16,7 @@ export const isWithdrawing = stateManager.selector<void, boolean>( store => (
   store.withdrawTransaction.inProcess
 ));
 
-export const geWithdrawResult = stateManager.selector<void, TransactionResult | undefined>( store => {
+export const getWithdrawResult = stateManager.selector<void, TransactionResult | undefined>( store => {
   const {result, error} = store.withdrawTransaction;
   if( result ){
     return {result, error};

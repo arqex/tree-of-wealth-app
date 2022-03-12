@@ -1,0 +1,27 @@
+.button {
+  border: 1px solid rgba(0,0,0,.2);
+  background-color: #e0eaf4;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e6effd;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.separator {
+  display: inline-block;
+  width: 4px;
+}
+
+.dots {
+  display: inline-block;
+  transform: translateY(2px);
+}

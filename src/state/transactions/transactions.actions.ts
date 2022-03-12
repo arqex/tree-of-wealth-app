@@ -1,5 +1,6 @@
 import { ethers } from "ethers";
 import { getContract } from "../contract/contract.actions";
+import { invalidateAvailableToWithdraw } from "../contract/contract.loaders";
 import { setBuyResult, setIsBuying, setIsSettingOrphanOwner, setIsWithdrawing, setOrphanOwnerResult, setWithdrawResult } from "./transactions.reducers";
 import { isBuying, isSettingOrphanOwner, isWithdrawing } from "./transactions.selectors";
 
@@ -16,10 +17,11 @@ export async function buy( price: ethers.BigNumber ){
     setBuyResult({ result: 'ok' });
   }
   catch( err ){
+    console.error( err );
     setBuyResult({
       result: 'error',
       // @ts-ignore
-      error: err.toString()
+      error: err?.data || (err.code && err) || {code: -1, message: 'Unknown error'}
     })
   }
 }
@@ -35,12 +37,14 @@ export async function withdraw(){
     let tx = await contract.functions.withdraw();
     await tx.wait();
     setWithdrawResult({ result: 'ok' });
+    invalidateAvailableToWithdraw();
   }
   catch( err ){
+    console.error( err );
     setWithdrawResult({
       result: 'error',
       // @ts-ignore
-      error: err.toString()
+      error: err?.data || (err.code && err) || {code: -1, message: 'Unknown error'}
     })
   }
 }
@@ -58,10 +62,11 @@ export async function setOrphanOwner( address: string ){
     setOrphanOwnerResult({ result: 'ok' });
   }
   catch( err ){
+    console.error( err );
     setOrphanOwnerResult({
       result: 'error',
       // @ts-ignore
-      error: err.toString()
+      error: err?.data || (err.code && err) || {code: -1, message: 'Unknown error'}
     })
   }
 }

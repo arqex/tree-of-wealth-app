@@ -1,5 +1,6 @@
 import { ethers } from 'ethers';
 import Lorese from 'lorese';
+import { RCPError } from './transactions/transactions.reducers';
 
 interface Owner {
   address: string,
@@ -23,17 +24,17 @@ interface Store {
   buyTransaction: {
     inProcess: boolean,
     result: 'ok' | 'error' | undefined,
-    error: string | undefined
+    error: RCPError | undefined
   },
   withdrawTransaction: {
     inProcess: boolean,
     result: 'ok' | 'error' | undefined,
-    error: string | undefined
+    error: RCPError | undefined
   },
   setOrphanOwnerTransaction: {
     inProcess: boolean,
     result: 'ok' | 'error' | undefined,
-    error: string | undefined
+    error: RCPError | undefined
   }
 }
 

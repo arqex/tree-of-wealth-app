@@ -1,0 +1,30 @@
+.contentMainMessage {
+  margin-bottom: 30px;
+}
+
+.matic {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.amount {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.pod {
+  background-color: rgba(248, 201, 127,.1);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,.05);
+  width: 100%;
+}
+
+.p {
+  margin-bottom: 20px;
+}
+
+.section {
+  margin-bottom: 30px;
+}

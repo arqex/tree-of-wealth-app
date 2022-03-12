@@ -9,9 +9,14 @@ export const setIsBuying = stateManager.reducer<boolean>( (store, isBuying) => (
   }
 }));
 
+export interface RCPError {
+  code: number,
+  message: string
+}
+
 export interface TransactionResult {
   result: 'ok' | 'error',
-  error?: string
+  error?: RCPError
 }
 export const setBuyResult = stateManager.reducer<TransactionResult>( (store, result) => ({
   ...store,
@@ -49,7 +54,7 @@ export const setWithdrawResult = stateManager.reducer<TransactionResult>( (store
   }
 }));
 
-export const resetWithdrawResult = stateManager.reducer<void>( (store) => ({
+export const resetWithdrawResult = stateManager.reducer<any|void>( (store) => ({
   ...store,
   withdrawTransaction: {
     inProcess: false,

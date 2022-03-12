@@ -49,7 +49,7 @@ class SettingsScreen extends Component<SettingsScreenProps, SettingsScreenState>
   }
 
   _setResultError = () => {
-    setBuyResult({result: 'error', error: 'Somethign went wrong'});
+    setBuyResult({result: 'error', error: {code: 0, message: 'Somethign went wrong'}});
   }
 
   _resetResult = () => {
