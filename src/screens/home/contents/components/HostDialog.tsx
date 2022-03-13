@@ -2,8 +2,8 @@ import { BigNumber, BigNumberish, ethers } from 'ethers';
 import { Component } from 'react';
 import Button from '../../../../components/Button/Button';
 import { ErrorMessage } from '../../../../components/ErrorMessage/ErrorMesage';
-import { buy, withdraw } from '../../../../state/transactions/transactions.actions';
-import { resetBuyResult, resetWithdrawResult, TransactionResult } from '../../../../state/transactions/transactions.reducers';
+import { buy } from '../../../../state/transactions/transactions.actions';
+import { resetBuyResult, TransactionResult } from '../../../../state/transactions/transactions.reducers';
 import { isBuying, getBuyResult } from '../../../../state/transactions/transactions.selectors';
 import styles from '../homeContents.module.css';
 
@@ -43,7 +43,7 @@ export class HostDialog extends Component<HostDialogProps, HostDialogState> {
             loadingText="Becoming host"
             loading={ isBuying() }
             width={160}>
-              Withdraw
+              Become the host
           </Button>
         </div>
       </div>
@@ -59,7 +59,7 @@ export class HostDialog extends Component<HostDialogProps, HostDialogState> {
           <span className={styles.matic}>MATIC</span>
         </div>
         <div>
-            <Button onClick={ resetWithdrawResult }
+            <Button onClick={ () => resetBuyResult() }
               width={160}>
                 Close
             </Button>
@@ -79,7 +79,7 @@ export class HostDialog extends Component<HostDialogProps, HostDialogState> {
     if( result?.error ){
       return (
         <div className={styles.p}>
-          <ErrorMessage onClose={ resetBuyResult }>
+          <ErrorMessage onClose={ () => resetBuyResult() }>
             { result.error.message }
           </ErrorMessage>
         </div>

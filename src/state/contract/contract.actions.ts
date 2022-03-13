@@ -3,8 +3,9 @@ import { getCurrentChainId, getSigner } from "../wallet/wallet.selectors";
 import contractSpec from './TreeOfWealth.json';
 import {TreeOfWealth} from '../../../types/ethers-contracts';
 import { getContractAddress, isValidNetwork } from "../../utils/networks";
-import { invalidateAvailableToWithdraw, invalidateHost, invalidateHostsCount, invalidateOrphanValue, invalidatePrice } from "./contract.loaders";
+import { invalidateAvailableToWithdraw, invalidateHost, invalidateHostsCount, invalidateRepeatingValue, invalidatePrice } from "./contract.loaders";
 import { refreshUI } from "../stateManager";
+import { resetBuyResult, resetWithdrawResult } from "../transactions/transactions.reducers";
 
 export function getContract(): TreeOfWealth | undefined {
   let signer = getSigner();
@@ -24,10 +25,12 @@ export function bindContractListeners( chainId: number ){
         console.log('Transfer event received!');
         invalidateHost();
         invalidateAvailableToWithdraw();
-        invalidateOrphanValue();
+        invalidateRepeatingValue();
         invalidatePrice();
         invalidateHostsCount();
         refreshUI();
+        resetBuyResult();
+        resetWithdrawResult();
       });
 
       contract.on('OrphanOwnerChange', () => {

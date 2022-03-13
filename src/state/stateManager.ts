@@ -16,8 +16,8 @@ interface Store {
     owner: string | undefined,
     currentPrice: ethers.BigNumber | undefined
     currentHostAddress: string | undefined,
-    orphanOwner: string | undefined,
-    orphanValue: ethers.BigNumber | undefined,
+    repeatingOwner: string | undefined,
+    repeatingValue: ethers.BigNumber | undefined,
     hostsCount: ethers.BigNumber | undefined
   },
   hosts: {[address: string]: Owner},
@@ -31,7 +31,7 @@ interface Store {
     result: 'ok' | 'error' | undefined,
     error: RCPError | undefined
   },
-  setOrphanOwnerTransaction: {
+  setRepeatingOwnerTransaction: {
     inProcess: boolean,
     result: 'ok' | 'error' | undefined,
     error: RCPError | undefined
@@ -47,8 +47,8 @@ const store: Store = {
     owner: undefined,
     currentPrice: undefined,
     currentHostAddress: undefined,
-    orphanOwner: undefined,
-    orphanValue: undefined,
+    repeatingOwner: undefined,
+    repeatingValue: undefined,
     hostsCount: undefined
   },
   hosts: {},
@@ -62,7 +62,7 @@ const store: Store = {
     result: undefined,
     error: undefined
   },
-  setOrphanOwnerTransaction: {
+  setRepeatingOwnerTransaction: {
     inProcess: false,
     result: undefined,
     error: undefined

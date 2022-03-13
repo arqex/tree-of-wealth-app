@@ -18,7 +18,7 @@ const networks: {[id: number]: NetworkDefinition} = {
     name: 'Polygon Mumbai',
     chainId: 80001,
     type: 'test',
-    contractAddress: "0x180674cB240bb9579d6D722beeEf4389bD9bee97"
+    contractAddress: "0xd6b26AD9bF3570F08eC3683f711c782c25C3f8D3"
   },
 }
 

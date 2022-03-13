@@ -23,12 +23,12 @@ export const getWithdrawResult = stateManager.selector<void, TransactionResult |
   }
 });
 
-export const isSettingOrphanOwner = stateManager.selector<void, boolean>( store => (
-  store.setOrphanOwnerTransaction.inProcess
+export const isSettingRepeatingOwner = stateManager.selector<void, boolean>( store => (
+  store.setRepeatingOwnerTransaction.inProcess
 ));
 
-export const geSetOrphanOwnerResult = stateManager.selector<void, TransactionResult | undefined>( store => {
-  const {result, error} = store.setOrphanOwnerTransaction;
+export const geSetRepeatingOwnerResult = stateManager.selector<void, TransactionResult | undefined>( store => {
+  const {result, error} = store.setRepeatingOwnerTransaction;
   if( result ){
     return {result, error};
   }

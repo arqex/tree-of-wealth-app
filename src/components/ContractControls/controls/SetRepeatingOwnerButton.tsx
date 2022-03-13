@@ -1,19 +1,19 @@
 import { ChangeEvent, Component } from "react";
 import { ContractOwnerLoader } from "../../../state/contract/contract.loaders";
-import { setOrphanOwner } from "../../../state/transactions/transactions.actions";
+import { setRepeatingOwner } from "../../../state/transactions/transactions.actions";
 import { getConnectedAddress } from "../../../state/wallet/wallet.selectors";
 
-interface SetOrphanOwnerButtonProps {
+interface SetRepeatingOwnerButtonProps {
   
 }
  
-interface SetOrphanOwnerButtonState {
+interface SetRepeatingOwnerButtonState {
   address: string,
   error: string,
   setting: boolean
 }
  
-export class SetOrphanOwnerButton extends Component<SetOrphanOwnerButtonProps, SetOrphanOwnerButtonState> {
+export class SetRepeatingOwnerButton extends Component<SetRepeatingOwnerButtonProps, SetRepeatingOwnerButtonState> {
   state = {
     address: '',
     error: '',
@@ -67,7 +67,7 @@ export class SetOrphanOwnerButton extends Component<SetOrphanOwnerButtonProps, S
       error: '',
       setting: true
     })
-    setOrphanOwner( address );
+    setRepeatingOwner( address, 'Repeating' );
   }
 }
 

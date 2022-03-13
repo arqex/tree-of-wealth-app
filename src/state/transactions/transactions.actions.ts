@@ -1,8 +1,8 @@
 import { ethers } from "ethers";
 import { getContract } from "../contract/contract.actions";
 import { invalidateAvailableToWithdraw } from "../contract/contract.loaders";
-import { setBuyResult, setIsBuying, setIsSettingOrphanOwner, setIsWithdrawing, setOrphanOwnerResult, setWithdrawResult } from "./transactions.reducers";
-import { isBuying, isSettingOrphanOwner, isWithdrawing } from "./transactions.selectors";
+import { setBuyResult, setIsBuying, setIsSettingRepeatingOwner, setIsWithdrawing, setRepeatingOwnerResult, setWithdrawResult } from "./transactions.reducers";
+import { isBuying, isSettingRepeatingOwner, isWithdrawing } from "./transactions.selectors";
 
 export async function buy( price: ethers.BigNumber ){
   const contract = getContract();
@@ -49,21 +49,21 @@ export async function withdraw(){
   }
 }
 
-export async function setOrphanOwner( address: string ){
+export async function setRepeatingOwner( address: string, name: string ){
   const contract = getContract();
   if( !contract ) throw new Error('No contract to buy the tree');
 
-  if( isSettingOrphanOwner() ) return;
+  if( isSettingRepeatingOwner() ) return;
 
-  setIsSettingOrphanOwner(true);
+  setIsSettingRepeatingOwner(true);
   try {
-    let tx = await contract.functions.setOrphanOwner(address);
+    let tx = await contract.functions.setCurrentRepeatingOwner(address, name);
     await tx.wait();
-    setOrphanOwnerResult({ result: 'ok' });
+    setRepeatingOwnerResult({ result: 'ok' });
   }
   catch( err ){
     console.error( err );
-    setOrphanOwnerResult({
+    setRepeatingOwnerResult({
       result: 'error',
       // @ts-ignore
       error: err?.data || (err.code && err) || {code: -1, message: 'Unknown error'}

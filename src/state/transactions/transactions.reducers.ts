@@ -54,7 +54,7 @@ export const setWithdrawResult = stateManager.reducer<TransactionResult>( (store
   }
 }));
 
-export const resetWithdrawResult = stateManager.reducer<any|void>( (store) => ({
+export const resetWithdrawResult = stateManager.reducer<void>( (store) => ({
   ...store,
   withdrawTransaction: {
     inProcess: false,
@@ -65,27 +65,27 @@ export const resetWithdrawResult = stateManager.reducer<any|void>( (store) => ({
 
 
 
-export const setIsSettingOrphanOwner = stateManager.reducer<boolean>( (store, isWithdrawing) => ({
+export const setIsSettingRepeatingOwner = stateManager.reducer<boolean>( (store, isWithdrawing) => ({
   ...store,
-  setOrphanOwnerTransaction: {
+  setRepeatingOwnerTransaction: {
     inProcess: isWithdrawing,
     result: undefined,
     error: undefined
   }
 }));
 
-export const setOrphanOwnerResult = stateManager.reducer<TransactionResult>( (store, result) => ({
+export const setRepeatingOwnerResult = stateManager.reducer<TransactionResult>( (store, result) => ({
   ...store,
-  setOrphanOwnerTransaction: {
+  setRepeatingOwnerTransaction: {
     inProcess: false,
     result: result.result,
     error: result.error
   }
 }));
 
-export const resetOrphanOwnerResult = stateManager.reducer<void>( (store) => ({
+export const resetRepeatingOwnerResult = stateManager.reducer<void>( (store) => ({
   ...store,
-  setOrphanOwnerTransaction: {
+  setRepeatingOwnerTransaction: {
     inProcess: false,
     result: undefined,
     error: undefined

@@ -61,53 +61,53 @@ export const HostLoader = stateManager.loader<void, string>({
   }
 });
 
-export const OrphanOwnerLoader = stateManager.loader<void, string>({
+export const RepeatingOwnerLoader = stateManager.loader<void, string>({
   selector(store) {
-    return store.contract.orphanOwner
+    return store.contract.repeatingOwner
   },
   load: async function() {
     let contract = getContract();
     if( !contract ) throw new Error('No contract available');
 
-    contract.functions.orphanOwner()
+    contract.functions.currentRepeatingOwner()
       .then( stateManager.reducer( (store, result: [string]) => {
         return {
           ...store,
           contract: {
             ...store.contract,
-            orphanOwner: result[0]
+            repeatingOwner: result[0]
           }
         }
       }));
   }
 });
 
-let isValidOrphanValue = true;
-export function invalidateOrphanValue() {
-  isValidOrphanValue = false;
+let isValidRepeatingValue = true;
+export function invalidateRepeatingValue() {
+  isValidRepeatingValue = false;
 }
-export const OrphanValueLoader = stateManager.loader<void, BigNumber>({
+export const RepeatingValueLoader = stateManager.loader<void, BigNumber>({
   selector(store) {
-    return store.contract.orphanValue
+    return store.contract.repeatingValue
   },
   load: async function() {
     let contract = getContract();
     if( !contract ) throw new Error('No contract available');
 
-    contract.functions.orphanValue()
+    contract.functions.repeatingValue()
       .then( stateManager.reducer( (store, result: [BigNumber]) => {
-        isValidOrphanValue = true;
+        isValidRepeatingValue = true;
         return {
           ...store,
           contract: {
             ...store.contract,
-            orphanValue: result[0]
+            repeatingValue: result[0]
           }
         }
       }));
   },
   isValid() {
-    return isValidOrphanValue;
+    return isValidRepeatingValue;
   }
 });
 

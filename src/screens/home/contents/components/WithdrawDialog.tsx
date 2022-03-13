@@ -59,7 +59,7 @@ export class WithdrawDialog extends Component<WithdrawDialogProps, WithdrawDialo
           <span className={styles.matic}>MATIC</span>
         </div>
         <div>
-            <Button onClick={ resetWithdrawResult }
+            <Button onClick={ () => resetWithdrawResult() }
               width={160}>
                 Close
             </Button>

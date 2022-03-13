@@ -26,22 +26,25 @@ export interface TreeOfWealthInterface extends utils.Interface {
     "balanceOf(address)": FunctionFragment;
     "currentHost()": FunctionFragment;
     "currentPrice()": FunctionFragment;
+    "currentRepeatingOwner()": FunctionFragment;
     "getApproved(uint256)": FunctionFragment;
+    "getWithdrawnValue()": FunctionFragment;
     "hasBeenHost(address)": FunctionFragment;
     "host()": FunctionFragment;
     "hostsCount()": FunctionFragment;
     "isApprovedForAll(address,address)": FunctionFragment;
+    "isRepeatingHost()": FunctionFragment;
     "name()": FunctionFragment;
-    "orphanOwner()": FunctionFragment;
-    "orphanValue()": FunctionFragment;
     "owner()": FunctionFragment;
     "ownerOf(uint256)": FunctionFragment;
     "priceRaise()": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
     "repeatHostingCount()": FunctionFragment;
+    "repeatingValue()": FunctionFragment;
     "safeTransferFrom(address,address,uint256)": FunctionFragment;
     "setApprovalForAll(address,bool)": FunctionFragment;
-    "setOrphanOwner(address)": FunctionFragment;
+    "setCurrentRepeatingOwner(address,string)": FunctionFragment;
+    "setRepeatingOwnerName(address,string)": FunctionFragment;
     "supportsInterface(bytes4)": FunctionFragment;
     "symbol()": FunctionFragment;
     "tokenURI(uint256)": FunctionFragment;
@@ -68,8 +71,16 @@ export interface TreeOfWealthInterface extends utils.Interface {
     values?: undefined
   ): string;
   encodeFunctionData(
+    functionFragment: "currentRepeatingOwner",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
     functionFragment: "getApproved",
     values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getWithdrawnValue",
+    values?: undefined
   ): string;
   encodeFunctionData(functionFragment: "hasBeenHost", values: [string]): string;
   encodeFunctionData(functionFragment: "host", values?: undefined): string;
@@ -81,15 +92,11 @@ export interface TreeOfWealthInterface extends utils.Interface {
     functionFragment: "isApprovedForAll",
     values: [string, string]
   ): string;
+  encodeFunctionData(
+    functionFragment: "isRepeatingHost",
+    values?: undefined
+  ): string;
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "orphanOwner",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "orphanValue",
-    values?: undefined
-  ): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "ownerOf",
@@ -108,6 +115,10 @@ export interface TreeOfWealthInterface extends utils.Interface {
     values?: undefined
   ): string;
   encodeFunctionData(
+    functionFragment: "repeatingValue",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
     functionFragment: "safeTransferFrom",
     values: [string, string, BigNumberish]
   ): string;
@@ -116,8 +127,12 @@ export interface TreeOfWealthInterface extends utils.Interface {
     values: [string, boolean]
   ): string;
   encodeFunctionData(
-    functionFragment: "setOrphanOwner",
-    values: [string]
+    functionFragment: "setCurrentRepeatingOwner",
+    values: [string, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setRepeatingOwnerName",
+    values: [string, string]
   ): string;
   encodeFunctionData(
     functionFragment: "supportsInterface",
@@ -153,7 +168,15 @@ export interface TreeOfWealthInterface extends utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
+    functionFragment: "currentRepeatingOwner",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "getApproved",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getWithdrawnValue",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -166,15 +189,11 @@ export interface TreeOfWealthInterface extends utils.Interface {
     functionFragment: "isApprovedForAll",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(
+    functionFragment: "isRepeatingHost",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "orphanOwner",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "orphanValue",
-    data: BytesLike
-  ): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "ownerOf", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "priceRaise", data: BytesLike): Result;
@@ -187,6 +206,10 @@ export interface TreeOfWealthInterface extends utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
+    functionFragment: "repeatingValue",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "safeTransferFrom",
     data: BytesLike
   ): Result;
@@ -195,7 +218,11 @@ export interface TreeOfWealthInterface extends utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "setOrphanOwner",
+    functionFragment: "setCurrentRepeatingOwner",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setRepeatingOwnerName",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -217,16 +244,16 @@ export interface TreeOfWealthInterface extends utils.Interface {
   events: {
     "Approval(address,address,uint256)": EventFragment;
     "ApprovalForAll(address,address,bool)": EventFragment;
-    "OrphanOwnerChange(address)": EventFragment;
     "OwnershipTransferred(address,address)": EventFragment;
+    "RepeatingOwnerChange(address)": EventFragment;
     "Transfer(address,address,uint256)": EventFragment;
     "Withdraw(address,uint256)": EventFragment;
   };
 
   getEvent(nameOrSignatureOrTopic: "Approval"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "ApprovalForAll"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "OrphanOwnerChange"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "OwnershipTransferred"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "RepeatingOwnerChange"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "Transfer"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "Withdraw"): EventFragment;
 }
@@ -245,11 +272,6 @@ export type ApprovalForAllEvent = TypedEvent<
 
 export type ApprovalForAllEventFilter = TypedEventFilter<ApprovalForAllEvent>;
 
-export type OrphanOwnerChangeEvent = TypedEvent<[string], { newOwner: string }>;
-
-export type OrphanOwnerChangeEventFilter =
-  TypedEventFilter<OrphanOwnerChangeEvent>;
-
 export type OwnershipTransferredEvent = TypedEvent<
   [string, string],
   { previousOwner: string; newOwner: string }
@@ -257,6 +279,14 @@ export type OwnershipTransferredEvent = TypedEvent<
 
 export type OwnershipTransferredEventFilter =
   TypedEventFilter<OwnershipTransferredEvent>;
+
+export type RepeatingOwnerChangeEvent = TypedEvent<
+  [string],
+  { newOwner: string }
+>;
+
+export type RepeatingOwnerChangeEventFilter =
+  TypedEventFilter<RepeatingOwnerChangeEvent>;
 
 export type TransferEvent = TypedEvent<
   [string, string, BigNumber],
@@ -314,10 +344,14 @@ export interface TreeOfWealth extends BaseContract {
 
     currentPrice(overrides?: CallOverrides): Promise<[BigNumber]>;
 
+    currentRepeatingOwner(overrides?: CallOverrides): Promise<[string]>;
+
     getApproved(
       tokenId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<[string]>;
+
+    getWithdrawnValue(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     hasBeenHost(addr: string, overrides?: CallOverrides): Promise<[boolean]>;
 
@@ -333,11 +367,9 @@ export interface TreeOfWealth extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[boolean]>;
 
+    isRepeatingHost(overrides?: CallOverrides): Promise<[boolean]>;
+
     name(overrides?: CallOverrides): Promise<[string]>;
-
-    orphanOwner(overrides?: CallOverrides): Promise<[string]>;
-
-    orphanValue(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     owner(overrides?: CallOverrides): Promise<[string]>;
 
@@ -353,6 +385,8 @@ export interface TreeOfWealth extends BaseContract {
     ): Promise<ContractTransaction>;
 
     repeatHostingCount(overrides?: CallOverrides): Promise<[BigNumber]>;
+
+    repeatingValue(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     "safeTransferFrom(address,address,uint256)"(
       from: string,
@@ -375,8 +409,15 @@ export interface TreeOfWealth extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    setOrphanOwner(
+    setCurrentRepeatingOwner(
       owner: string,
+      nextName: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    setRepeatingOwnerName(
+      owner: string,
+      nextName: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
@@ -423,10 +464,14 @@ export interface TreeOfWealth extends BaseContract {
 
   currentPrice(overrides?: CallOverrides): Promise<BigNumber>;
 
+  currentRepeatingOwner(overrides?: CallOverrides): Promise<string>;
+
   getApproved(
     tokenId: BigNumberish,
     overrides?: CallOverrides
   ): Promise<string>;
+
+  getWithdrawnValue(overrides?: CallOverrides): Promise<BigNumber>;
 
   hasBeenHost(addr: string, overrides?: CallOverrides): Promise<boolean>;
 
@@ -442,11 +487,9 @@ export interface TreeOfWealth extends BaseContract {
     overrides?: CallOverrides
   ): Promise<boolean>;
 
+  isRepeatingHost(overrides?: CallOverrides): Promise<boolean>;
+
   name(overrides?: CallOverrides): Promise<string>;
-
-  orphanOwner(overrides?: CallOverrides): Promise<string>;
-
-  orphanValue(overrides?: CallOverrides): Promise<BigNumber>;
 
   owner(overrides?: CallOverrides): Promise<string>;
 
@@ -459,6 +502,8 @@ export interface TreeOfWealth extends BaseContract {
   ): Promise<ContractTransaction>;
 
   repeatHostingCount(overrides?: CallOverrides): Promise<BigNumber>;
+
+  repeatingValue(overrides?: CallOverrides): Promise<BigNumber>;
 
   "safeTransferFrom(address,address,uint256)"(
     from: string,
@@ -481,8 +526,15 @@ export interface TreeOfWealth extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  setOrphanOwner(
+  setCurrentRepeatingOwner(
     owner: string,
+    nextName: string,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  setRepeatingOwnerName(
+    owner: string,
+    nextName: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -526,10 +578,14 @@ export interface TreeOfWealth extends BaseContract {
 
     currentPrice(overrides?: CallOverrides): Promise<BigNumber>;
 
+    currentRepeatingOwner(overrides?: CallOverrides): Promise<string>;
+
     getApproved(
       tokenId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<string>;
+
+    getWithdrawnValue(overrides?: CallOverrides): Promise<BigNumber>;
 
     hasBeenHost(addr: string, overrides?: CallOverrides): Promise<boolean>;
 
@@ -543,11 +599,9 @@ export interface TreeOfWealth extends BaseContract {
       overrides?: CallOverrides
     ): Promise<boolean>;
 
+    isRepeatingHost(overrides?: CallOverrides): Promise<boolean>;
+
     name(overrides?: CallOverrides): Promise<string>;
-
-    orphanOwner(overrides?: CallOverrides): Promise<string>;
-
-    orphanValue(overrides?: CallOverrides): Promise<BigNumber>;
 
     owner(overrides?: CallOverrides): Promise<string>;
 
@@ -558,6 +612,8 @@ export interface TreeOfWealth extends BaseContract {
     renounceOwnership(overrides?: CallOverrides): Promise<void>;
 
     repeatHostingCount(overrides?: CallOverrides): Promise<BigNumber>;
+
+    repeatingValue(overrides?: CallOverrides): Promise<BigNumber>;
 
     "safeTransferFrom(address,address,uint256)"(
       from: string,
@@ -580,7 +636,17 @@ export interface TreeOfWealth extends BaseContract {
       overrides?: CallOverrides
     ): Promise<void>;
 
-    setOrphanOwner(owner: string, overrides?: CallOverrides): Promise<void>;
+    setCurrentRepeatingOwner(
+      owner: string,
+      nextName: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    setRepeatingOwnerName(
+      owner: string,
+      nextName: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     supportsInterface(
       interfaceId: BytesLike,
@@ -629,9 +695,6 @@ export interface TreeOfWealth extends BaseContract {
       approved?: null
     ): ApprovalForAllEventFilter;
 
-    "OrphanOwnerChange(address)"(newOwner?: null): OrphanOwnerChangeEventFilter;
-    OrphanOwnerChange(newOwner?: null): OrphanOwnerChangeEventFilter;
-
     "OwnershipTransferred(address,address)"(
       previousOwner?: string | null,
       newOwner?: string | null
@@ -640,6 +703,11 @@ export interface TreeOfWealth extends BaseContract {
       previousOwner?: string | null,
       newOwner?: string | null
     ): OwnershipTransferredEventFilter;
+
+    "RepeatingOwnerChange(address)"(
+      newOwner?: null
+    ): RepeatingOwnerChangeEventFilter;
+    RepeatingOwnerChange(newOwner?: null): RepeatingOwnerChangeEventFilter;
 
     "Transfer(address,address,uint256)"(
       from?: string | null,
@@ -674,10 +742,14 @@ export interface TreeOfWealth extends BaseContract {
 
     currentPrice(overrides?: CallOverrides): Promise<BigNumber>;
 
+    currentRepeatingOwner(overrides?: CallOverrides): Promise<BigNumber>;
+
     getApproved(
       tokenId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
+
+    getWithdrawnValue(overrides?: CallOverrides): Promise<BigNumber>;
 
     hasBeenHost(addr: string, overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -693,11 +765,9 @@ export interface TreeOfWealth extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    isRepeatingHost(overrides?: CallOverrides): Promise<BigNumber>;
+
     name(overrides?: CallOverrides): Promise<BigNumber>;
-
-    orphanOwner(overrides?: CallOverrides): Promise<BigNumber>;
-
-    orphanValue(overrides?: CallOverrides): Promise<BigNumber>;
 
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -713,6 +783,8 @@ export interface TreeOfWealth extends BaseContract {
     ): Promise<BigNumber>;
 
     repeatHostingCount(overrides?: CallOverrides): Promise<BigNumber>;
+
+    repeatingValue(overrides?: CallOverrides): Promise<BigNumber>;
 
     "safeTransferFrom(address,address,uint256)"(
       from: string,
@@ -735,8 +807,15 @@ export interface TreeOfWealth extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    setOrphanOwner(
+    setCurrentRepeatingOwner(
       owner: string,
+      nextName: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    setRepeatingOwnerName(
+      owner: string,
+      nextName: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
@@ -789,10 +868,16 @@ export interface TreeOfWealth extends BaseContract {
 
     currentPrice(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
+    currentRepeatingOwner(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     getApproved(
       tokenId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
+
+    getWithdrawnValue(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     hasBeenHost(
       addr: string,
@@ -811,11 +896,9 @@ export interface TreeOfWealth extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
+    isRepeatingHost(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
     name(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
-    orphanOwner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
-    orphanValue(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -833,6 +916,8 @@ export interface TreeOfWealth extends BaseContract {
     repeatHostingCount(
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
+
+    repeatingValue(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     "safeTransferFrom(address,address,uint256)"(
       from: string,
@@ -855,8 +940,15 @@ export interface TreeOfWealth extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    setOrphanOwner(
+    setCurrentRepeatingOwner(
       owner: string,
+      nextName: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    setRepeatingOwnerName(
+      owner: string,
+      nextName: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
