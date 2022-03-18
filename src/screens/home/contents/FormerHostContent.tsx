@@ -2,10 +2,10 @@ import { BigNumber, ethers } from "ethers";
 import { Component } from "react";
 import ConfirmModal from "../../../components/ConfirmModal/ConfirmModal";
 import Spinner from "../../../components/Spinner/Spinner";
+import { Text } from "../../../components/Text/Text";
 import { AvailableToWithdrawLoader, PriceLoader } from "../../../state/contract/contract.loaders";
 import { getWithdrawResult, isBuying, isWithdrawing } from "../../../state/transactions/transactions.selectors";
 import { getConnectedAddress } from "../../../state/wallet/wallet.selectors";
-import HomeLayout from "../HomeLayout";
 import { HostDialog } from "./components/HostDialog";
 import { LearnMoreLink } from "./components/LearnMoreLinkt";
 import { WithdrawDialog } from "./components/WithdrawDialog";
@@ -26,17 +26,8 @@ class FormerHostContent extends Component<FormerHostContentProps, FormerHostCont
 
   render() {
     return (
-      <HomeLayout 
-        title="The Tree of Wealth"
-        subtitle="Welcome dear former host, it's always nice to see you again."
-        content={ this.renderContent() }
-      />
-    );
-  }
-
-  renderContent() {
-    return (
       <div>
+        <Text type="h2" margin="l">Welcome dear former host, it's always nice to see you again.</Text>
         { this.renderPrice() }
         { this.renderWithdraw() }
         <LearnMoreLink />
@@ -53,9 +44,9 @@ class FormerHostContent extends Component<FormerHostContentProps, FormerHostCont
     ;
 
     return (
-      <div className={styles.p}>
+      <Text block>
         Current price for hosting the tree is {formatted} MATIC. <a onClick={ this._openModal }>Host it again</a>.
-      </div>
+      </Text>
     );
   }
 
@@ -89,15 +80,15 @@ class FormerHostContent extends Component<FormerHostContentProps, FormerHostCont
 
     return (
       <div className={styles.section}>
-        <div className={styles.p}>
+        <Text block>
           There hasn't been any new host since the last time you withdraw from The Tree.
-        </div>
-        <div className={styles.p}>
+        </Text>
+        <Text block>
           If you'd like to help The Tree to have more hosts you can share it with the world on your favorite social network
-        </div>
-        <div className={styles.p}>
+        </Text>
+        <Text block>
           <a>Twitter</a> - <a>Facebook</a> - <a>Instagram</a> - <a>TikTok</a>
-        </div>
+        </Text>
       </div>
     );
   }
@@ -126,7 +117,7 @@ class FormerHostContent extends Component<FormerHostContentProps, FormerHostCont
         </div>
         <div className={styles.p}>((NAME OF THE REPEATING VALUE OWNER HERE))</div>
         <div className={styles.p}><a>Know more about these donations</a></div>
-        <HostDialog amount={price} />
+        <HostDialog amount={price} onButtonClicked={ this._closeModal } />
       </div>
     )
   }
@@ -136,7 +127,7 @@ class FormerHostContent extends Component<FormerHostContentProps, FormerHostCont
   }
 
   _closeModal = () => {
-    if( !isBuying() ){
+    if( this.state.isHostAgainModalOpen ){
       this.setState({isHostAgainModalOpen: false})
     }
   }

@@ -89,3 +89,8 @@ export function refreshUI(){
     })
   }
 }
+
+if( typeof window !== 'undefined' ){
+  // @ts-ignore
+  window.stateManager = stateManager;
+}

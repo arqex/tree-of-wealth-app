@@ -1,16 +1,14 @@
 
 import { Component } from 'react';
 import './App.css';
-import BuyToast from './components/BuyToast/BuyToast';
-import ConnectButton from './components/ConnectButton/ConnectButton';
-import ContractControls from './components/ContractControls/ContractControls';
 import { getCurrentScreenComponents, getRouter } from './router/router';
 import { bindContractListeners } from './state/contract/contract.actions';
 import { setUIRefresher, stateManager } from './state/stateManager';
-import { resetBuyResult, setBuyResult, setIsBuying } from './state/transactions/transactions.reducers';
-import { getBuyResult, isBuying } from './state/transactions/transactions.selectors';
+import { getTransactionStatus } from './state/transactions/transactions.selectors';
 import { onNetworkChanged } from './state/wallet/wallet.actions';
-import { NetworkLoader } from './state/wallet/wallet.loaders';
+import { getWalletType } from './state/wallet/wallet.selectors';
+import { mergeClasses } from './utils/mergeClasses';
+import styles from './App.module.css';
 
 
 export default class App extends Component {
@@ -24,7 +22,20 @@ export default class App extends Component {
 
 		if (!Screen) return this.renderScreenNotFound();
 
-		return <Screen />;
+    const transactionStatus = getTransactionStatus();
+    const walletType = getWalletType();
+
+    let classes = mergeClasses(
+      styles.app,
+      styles[`app_${transactionStatus}`],
+      styles[`app_${walletType}`]
+    );
+
+		return (
+      <div className={ classes }>
+        <Screen />
+      </div>
+    );
   }
 
 	renderScreenNotFound() {
@@ -38,5 +49,4 @@ export default class App extends Component {
   }
 
   _forceUpdate = () => this.forceUpdate();
-
 }

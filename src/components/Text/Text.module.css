@@ -1,0 +1,57 @@
+
+.text {
+  font-size: 18px;
+  display: inline-block;
+}
+
+.type_h1 {
+  font-size: 40px;
+  display: block;
+}
+
+.type_h2 {
+  font-size: 22px;
+  display: block;
+}
+
+.type_h3 {
+  font-size: 20px;
+  display: block;
+}
+
+.type_small {
+  font-size: 14px;
+}
+
+.color_primary {
+  color: #222;
+}
+
+.color_secondary {
+  color: #555;
+}
+
+.color_link {
+  color: #23f;
+}
+
+.block {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.margin_xs {
+  margin-bottom: 4px;
+}
+
+.margin_s {
+  margin-bottom: 10px;
+}
+
+.margin_m {
+  margin-bottom: 20px;
+}
+
+.margin_l {
+  margin-bottom: 30px;
+}

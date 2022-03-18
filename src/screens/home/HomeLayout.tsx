@@ -1,10 +1,10 @@
 import { Component } from "react";
 import styles from './Home.module.css';
 import tree from './tree.png';
+import {Text} from '../../components/Text/Text';
 
 interface HomeLayoutProps {
   title: string,
-  subtitle?: string,
   content: any
 }
  
@@ -20,18 +20,10 @@ class HomeLayout extends Component<HomeLayoutProps, HomeLayoutState> {
         <div className={ styles.layoutImage}>
           <img src={tree} />
         </div>
-        <div className={styles.title}>{title}</div>
-        { this.renderSubtitle() }
+        <Text type="h1" margin="xs">{title}</Text>
         <div className={styles.layoutContent}>{content}</div>
       </div>
     );
-  }
-
-  renderSubtitle() {
-    const {subtitle} = this.props;
-    if( subtitle ){
-      return <div className={ styles.subtitle }>{subtitle}</div>;
-    }
   }
 }
  

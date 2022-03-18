@@ -1,3 +1,4 @@
+import { isValidNetwork } from "../../utils/networks";
 import { stateManager } from "../stateManager"
 import { TransactionResult } from "./transactions.reducers";
 
@@ -33,3 +34,13 @@ export const geSetRepeatingOwnerResult = stateManager.selector<void, Transaction
     return {result, error};
   }
 });
+
+export type TransactionStatus = 'out' | 'in' | 'withdrawing' | 'hosting';
+export const getTransactionStatus = stateManager.selector<void, TransactionStatus>( store => {
+  if( store.buyTransaction.inProcess ) return 'hosting';
+  if( store.withdrawTransaction.inProcess ) return 'withdrawing';
+  if( store.connectedSignerAddress && isValidNetwork(store.connectedNetwork?.chainId || 0) ){
+    return 'in';
+  }
+  return 'out';
+})

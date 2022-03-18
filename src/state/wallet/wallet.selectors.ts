@@ -47,3 +47,19 @@ export function getSigner() {
 export async function getAccounts() {
   return await getProvider().listAccounts();
 }
+
+export type WalletType = 'outsider' | 'host' | 'former_host' | 'repeating_host';
+export const getWalletType = stateManager.selector<void, WalletType>( store => {
+  const {connectedSignerAddress: address} = store;
+  if( !address ) return 'outsider';
+
+  if( store.contract.currentHostAddress === address ){
+    return 'host'
+  }
+
+  if( store.hosts[address]?.hasEverBeenOwner ){
+    return 'former_host';
+  }
+
+  return 'outsider';
+})

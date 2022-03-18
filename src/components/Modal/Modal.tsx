@@ -20,8 +20,10 @@ export default function Modal(props: ModalProps) {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: 'rgba(0,0,0,.4)'
+      backgroundColor: 'rgba(0,0,0,.4)',
+      zIndex: 2
     },
+    
     content: {
       width: props.width || '',
       minWidth: props.minWidth || '',

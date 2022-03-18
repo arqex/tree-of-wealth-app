@@ -29,8 +29,6 @@ export function bindContractListeners( chainId: number ){
         invalidatePrice();
         invalidateHostsCount();
         refreshUI();
-        resetBuyResult();
-        resetWithdrawResult();
       });
 
       contract.on('OrphanOwnerChange', () => {

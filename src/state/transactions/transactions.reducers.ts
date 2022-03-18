@@ -27,14 +27,16 @@ export const setBuyResult = stateManager.reducer<TransactionResult>( (store, res
   }
 }));
 
-export const resetBuyResult = stateManager.reducer<void>( (store) => ({
-  ...store,
-  buyTransaction: {
-    inProcess: false,
-    result: undefined,
-    error: undefined
-  }
-}));
+export const resetBuyResult = stateManager.reducer<void>( (store) => {
+  return {
+    ...store,
+    buyTransaction: {
+      inProcess: false,
+      result: undefined,
+      error: undefined
+    }
+  };
+});
 
 export const setIsWithdrawing = stateManager.reducer<boolean>( (store, isWithdrawing) => ({
   ...store,

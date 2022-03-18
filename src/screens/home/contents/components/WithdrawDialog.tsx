@@ -2,6 +2,7 @@ import { BigNumber, BigNumberish, ethers } from 'ethers';
 import { Component } from 'react';
 import Button from '../../../../components/Button/Button';
 import { ErrorMessage } from '../../../../components/ErrorMessage/ErrorMesage';
+import Pod from '../../../../components/Pod/Pod';
 import { withdraw } from '../../../../state/transactions/transactions.actions';
 import { resetWithdrawResult, TransactionResult } from '../../../../state/transactions/transactions.reducers';
 import { isWithdrawing, getWithdrawResult } from '../../../../state/transactions/transactions.selectors';
@@ -31,13 +32,12 @@ export class WithdrawDialog extends Component<WithdrawDialogProps, WithdrawDialo
     const {amount} = this.props;
 
     return (
-      <div className={styles.pod}>
+      <Pod>
         <div className={styles.p}>The Tree has been holding some coins for you...</div>
         <div className={styles.p}>
           <span className={styles.amount}>{ethers.utils.formatEther(amount)}</span>
           <span className={styles.matic}>MATIC</span>
         </div>
-        { this.renderWithdrawingText(result) }
         <div>
           <Button onClick={ withdraw }
             loadingText="Withdrawing"
@@ -46,13 +46,13 @@ export class WithdrawDialog extends Component<WithdrawDialogProps, WithdrawDialo
               Withdraw
           </Button>
         </div>
-      </div>
+      </Pod>
     );
   }
 
   renderWithdrawFinished() {
     return (
-      <div className={styles.pod}>
+      <Pod>
         <div className={styles.p}>The coins are all yours, handle them wisely.</div>
         <div className={styles.p}>
           <span className={styles.amount}>{ethers.utils.formatEther(this.state.prevAmount)}</span>
@@ -64,27 +64,8 @@ export class WithdrawDialog extends Component<WithdrawDialogProps, WithdrawDialo
                 Close
             </Button>
           </div>
-      </div>
+      </Pod>
     )
-  }
-
-  renderWithdrawingText(result?: TransactionResult) {
-    if( isWithdrawing() ){
-      return (
-        <div className={styles.p}>
-          Withdraw in process, it might take some minutes...
-        </div>
-      )
-    }
-    if( result?.error ){
-      return (
-        <div className={styles.p}>
-          <ErrorMessage onClose={ resetWithdrawResult }>
-            { result.error.message }
-          </ErrorMessage>
-        </div>
-      )
-    }
   }
 
   componentDidUpdate({amount: prevAmount}: WithdrawDialogProps) {

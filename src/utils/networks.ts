@@ -2,7 +2,10 @@ export interface NetworkDefinition {
   name: string,
   chainId: number,
   type: 'test' | 'production',
-  contractAddress: string
+  contractAddress: string,
+  rpc?: string,
+  symbol?: string,
+  blockExplorer?: string
 }
 
 const networks: {[id: number]: NetworkDefinition} = {
@@ -18,7 +21,10 @@ const networks: {[id: number]: NetworkDefinition} = {
     name: 'Polygon Mumbai',
     chainId: 80001,
     type: 'test',
-    contractAddress: "0xd6b26AD9bF3570F08eC3683f711c782c25C3f8D3"
+    contractAddress: "0xd6b26AD9bF3570F08eC3683f711c782c25C3f8D3",
+    rpc: 'https://rpc-mumbai.matic.today',
+    symbol: 'MATIC',
+    blockExplorer: 'https://mumbai.polygonscan.com/'
   },
 }
 
@@ -36,4 +42,8 @@ export function getNetworkName( chainId: number): string {
 
 export function getContractAddress( chainId: number): string {
   return networks[chainId]?.contractAddress || '';
+}
+
+export function getMainNetworkDetails(){
+  return networks[80001];
 }
