@@ -2,21 +2,25 @@
 .text {
   font-size: 18px;
   display: inline-block;
+  line-height: 1.3em;
 }
 
 .type_h1 {
   font-size: 40px;
   display: block;
+  line-height: 1.1em;
 }
 
 .type_h2 {
   font-size: 22px;
   display: block;
+  line-height: 1.1em;
 }
 
 .type_h3 {
   font-size: 20px;
   display: block;
+  line-height: 1.1em;
 }
 
 .type_small {

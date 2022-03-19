@@ -33,7 +33,7 @@ class BuyToast extends Component<BuyToastProps, BuyToastState> {
 
   renderContent(inProcess: boolean, result?: TransactionResult ){
     if( inProcess ){
-      return <div>Waiting for finishing buying the tree...</div>;
+      return <div>Waiting for finishing buying The Tree...</div>;
     }
     else if( result?.result === 'ok' ){
       return <div>The wait has finished. You are the new owner of the Tree of Wealth. <a onClick={ this._discard }>Close</a></div>

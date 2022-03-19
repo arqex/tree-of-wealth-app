@@ -29,7 +29,7 @@ class CurrentHostContent extends Component<CurrentHostContentProps, CurrentHostC
             While you are the host you can use The Tree as any other NFT. The only thing you can’t do it transfer or sell it. Check it out at <a>OpenSea</a>.
           </Text>
           <Text block>
-            Being the host of the tree is an honor. Surely all your friends at our favorite social media would love to know
+            Being the host of The Tree is an honor. Surely all your friends at our favorite social media would love to know
           </Text>
           <Text block>
             <a>Twitter</a> - <a>Facebook</a> - <a>Instagram</a> - <a>TikTok</a>

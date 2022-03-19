@@ -14,6 +14,7 @@ import TransactionLayer from "./TransactionLayer";
 import { getTransactionStatus } from "../../state/transactions/transactions.selectors";
 import Pod from "../../components/Pod/Pod";
 import NetworkNotValidContent from "./contents/NetworkNotValidContent";
+import TreeIntroduction from "./TreeIntroduction";
 
 interface HomeScreenProps {
   
@@ -27,9 +28,15 @@ class HomeScreen extends Component<HomeScreenProps, HomeScreenState> {
   render() { 
     return (
       <div className={styles.container}>
-        <HomeLayout
-          title="The Tree of Wealth"
-          content={ this.renderTransactionContainer() } />
+        <div className={styles.homeSection} id="main">
+          <HomeLayout
+            title="The Tree of Wealth"
+            content={ this.renderTransactionContainer() } />
+
+        </div>
+        <div className={styles.homeSection} id="about">
+          <TreeIntroduction />
+        </div>
       </div>
     )
   }

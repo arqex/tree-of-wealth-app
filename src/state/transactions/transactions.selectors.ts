@@ -44,3 +44,7 @@ export const getTransactionStatus = stateManager.selector<void, TransactionStatu
   }
   return 'out';
 })
+
+export const getPriceRaise = stateManager.selector<void, number>( store => {
+  return store.contract.priceRaise;
+})

@@ -6,7 +6,7 @@ import { isBuying, isSettingRepeatingOwner, isWithdrawing } from "./transactions
 
 export async function buy( price: ethers.BigNumber ){
   const contract = getContract();
-  if( !contract ) throw new Error('No contract to buy the tree');
+  if( !contract ) throw new Error('No contract to buy The Tree');
 
   if( isBuying() ) return;
 
@@ -28,7 +28,7 @@ export async function buy( price: ethers.BigNumber ){
 
 export async function withdraw(){
   const contract = getContract();
-  if( !contract ) throw new Error('No contract to buy the tree');
+  if( !contract ) throw new Error('No contract to buy The Tree');
 
   if( isWithdrawing() ) return;
 
@@ -51,7 +51,7 @@ export async function withdraw(){
 
 export async function setRepeatingOwner( address: string, name: string ){
   const contract = getContract();
-  if( !contract ) throw new Error('No contract to buy the tree');
+  if( !contract ) throw new Error('No contract to buy The Tree');
 
   if( isSettingRepeatingOwner() ) return;
 

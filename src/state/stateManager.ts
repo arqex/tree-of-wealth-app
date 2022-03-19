@@ -18,7 +18,8 @@ interface Store {
     currentHostAddress: string | undefined,
     repeatingOwner: string | undefined,
     repeatingValue: ethers.BigNumber | undefined,
-    hostsCount: ethers.BigNumber | undefined
+    hostsCount: ethers.BigNumber | undefined,
+    priceRaise: number
   },
   hosts: {[address: string]: Owner},
   buyTransaction: {
@@ -49,7 +50,8 @@ const store: Store = {
     currentHostAddress: undefined,
     repeatingOwner: undefined,
     repeatingValue: undefined,
-    hostsCount: undefined
+    hostsCount: undefined,
+    priceRaise: 0.001
   },
   hosts: {},
   buyTransaction: {

@@ -28,7 +28,7 @@ export class HostButton extends Component<HostButtonProps, HostButtonState> {
         <button
           disabled={owner === undefined}
           onClick={ this._openModal }>
-            { isBuying ? 'Transferring the tree...' : 'Become a host'}
+            { isBuying ? 'Transferring The Tree...' : 'Become a host'}
         </button>
         <ConfirmModal isOpen={isModalOpen}
           onRequestClose={ this._closeModal }
@@ -41,7 +41,7 @@ export class HostButton extends Component<HostButtonProps, HostButtonState> {
             </div>
           }
           controls={
-            <button onClick={ this._pay }>Host the tree</button>
+            <button onClick={ this._pay }>Host The Tree</button>
           } />
       </div>
     );

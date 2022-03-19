@@ -45,7 +45,7 @@ class FormerHostContent extends Component<FormerHostContentProps, FormerHostCont
 
     return (
       <Text block>
-        Current price for hosting the tree is {formatted} MATIC. <a onClick={ this._openModal }>Host it again</a>.
+        Current price for hosting The Tree is {formatted} MATIC. <a onClick={ this._openModal }>Host it again</a>.
       </Text>
     );
   }
