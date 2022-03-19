@@ -5,7 +5,8 @@ import styles from './Button.module.css';
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   width?: number,
   loading?: boolean,
-  loadingText?: string
+  loadingText?: string,
+  href?: string
 }
  
 interface ButtonState {
@@ -14,11 +15,26 @@ interface ButtonState {
  
 class Button extends Component<ButtonProps, ButtonState> {
   render() { 
-    const {children, loading, ...props} = this.props;
+    const {children, loading, href, ...props} = this.props;
     const content = loading ?
       this.renderLoading() :
       this.props.children
     ;
+
+    if( href ){
+      return(
+        // @ts-ignore
+        <a className={styles.button}
+          style={{width: this.props.width}}
+          disabled={loading}
+          href={href}
+          {...props}>
+          { content }
+        </a>
+
+      )
+    }
+
 
     return (
       <button className={styles.button}
