@@ -110,8 +110,8 @@ class TransactionLayer extends Component<TransactionLayerProps, TransactionLayer
       return (
         <div className={styles.transactionMessage}>
           <Pod>
-            <Text type="h2" block>Thanks to The Tree, your coins should be in your wallet.</Text>
-            <Text block>Why don't you commemorate this awesome event by sharing it in your social networks? You will help The Tree to have more hosts and the community will thank you for doing so.</Text>
+            <Text type="h2" block>Your are now the new host of The Tree.</Text>
+            <Text block>The Tree comes with the great responsibility of spreading the word. Maybe the next host is waiting among your friends, share it in your favorite social network.</Text>
             <div>
               <Button width={160} onClick={ this._close }>Close</Button>
             </div>

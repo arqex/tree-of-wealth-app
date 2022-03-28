@@ -34,7 +34,7 @@ export class HostDialog extends Component<HostDialogProps, HostDialogState> {
           <Button onClick={ this._onBuyClicked }
             loadingText="Becoming host"
             loading={ isBuying() }
-            width={160}>
+            width={180}>
               Become the host
           </Button>
         </div>

@@ -67,27 +67,27 @@ export const resetWithdrawResult = stateManager.reducer<void>( (store) => ({
 
 
 
-export const setIsSettingRepeatingOwner = stateManager.reducer<boolean>( (store, isWithdrawing) => ({
+export const setIsSettingSolidaryOwner = stateManager.reducer<boolean>( (store, isWithdrawing) => ({
   ...store,
-  setRepeatingOwnerTransaction: {
+  setSolidaryOwnerTransaction: {
     inProcess: isWithdrawing,
     result: undefined,
     error: undefined
   }
 }));
 
-export const setRepeatingOwnerResult = stateManager.reducer<TransactionResult>( (store, result) => ({
+export const setSolidaryOwnerResult = stateManager.reducer<TransactionResult>( (store, result) => ({
   ...store,
-  setRepeatingOwnerTransaction: {
+  setSolidaryOwnerTransaction: {
     inProcess: false,
     result: result.result,
     error: result.error
   }
 }));
 
-export const resetRepeatingOwnerResult = stateManager.reducer<void>( (store) => ({
+export const resetSolidaryOwnerResult = stateManager.reducer<void>( (store) => ({
   ...store,
-  setRepeatingOwnerTransaction: {
+  setSolidaryOwnerTransaction: {
     inProcess: false,
     result: undefined,
     error: undefined

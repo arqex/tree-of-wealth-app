@@ -21,7 +21,7 @@ const networks: {[id: number]: NetworkDefinition} = {
     name: 'Polygon Mumbai',
     chainId: 80001,
     type: 'test',
-    contractAddress: "0xd6b26AD9bF3570F08eC3683f711c782c25C3f8D3",
+    contractAddress: "0x0ae8daf0d0bcc03d630ca46f579a48137f1e1eae",
     rpc: 'https://rpc-mumbai.matic.today',
     symbol: 'MATIC',
     blockExplorer: 'https://mumbai.polygonscan.com/'

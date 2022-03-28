@@ -24,12 +24,12 @@ export const getWithdrawResult = stateManager.selector<void, TransactionResult |
   }
 });
 
-export const isSettingRepeatingOwner = stateManager.selector<void, boolean>( store => (
-  store.setRepeatingOwnerTransaction.inProcess
+export const isSettingSolidaryOwner = stateManager.selector<void, boolean>( store => (
+  store.setSolidaryOwnerTransaction.inProcess
 ));
 
-export const geSetRepeatingOwnerResult = stateManager.selector<void, TransactionResult | undefined>( store => {
-  const {result, error} = store.setRepeatingOwnerTransaction;
+export const geSetSolidaryOwnerResult = stateManager.selector<void, TransactionResult | undefined>( store => {
+  const {result, error} = store.setSolidaryOwnerTransaction;
   if( result ){
     return {result, error};
   }

@@ -10,10 +10,20 @@ interface LinkState {
  
 class Link extends Component<LinkProps, LinkState> {
   render() { 
-    const {children, onClick, ...props} = this.props;
+    const {children, onClick, href, ...props} = this.props;
+    let newTabAttributes: any = {};
+    if( href?.startsWith('http') ) {
+      newTabAttributes = {
+        target: '_blank',
+        rel: 'noopener norereffer'
+      };
+    }
     return (
       // @ts-ignore
-      <a onClick={this._onClick} {...props}>
+      <a onClick={this._onClick}
+       {...newTabAttributes}
+       href={href}
+       {...props}>
         {children}
       </a>
     );

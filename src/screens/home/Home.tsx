@@ -2,7 +2,6 @@ import { Component } from "react";
 import styles from './Home.module.css';
 import { isValidNetwork } from "../../utils/networks";
 import { AccountLoader, NetworkLoader } from "../../state/wallet/wallet.loaders";
-import { Network } from "@ethersproject/networks";
 import { HasBeenHostLoader, HostLoader } from "../../state/contract/contract.loaders";
 import NoConenctedContent from "./contents/NoConnectedContent";
 import FormerHostContent from "./contents/FormerHostContent";
@@ -12,7 +11,6 @@ import Spinner from "../../components/Spinner/Spinner";
 import HomeLayout from "./HomeLayout";
 import TransactionLayer from "./TransactionLayer";
 import { getTransactionStatus } from "../../state/transactions/transactions.selectors";
-import Pod from "../../components/Pod/Pod";
 import NetworkNotValidContent from "./contents/NetworkNotValidContent";
 import TreeIntroduction from "./TreeIntroduction";
 

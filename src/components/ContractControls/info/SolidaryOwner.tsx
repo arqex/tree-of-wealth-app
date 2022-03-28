@@ -1,8 +1,8 @@
-import { RepeatingOwnerLoader } from "../../../state/contract/contract.loaders";
+import { SolidaryOwnerLoader } from "../../../state/contract/contract.loaders";
 import { formatAddress } from "../../../utils/format";
 
-export function RepeatingOwner(){
-  const {data: owner} = RepeatingOwnerLoader();
+export function SolidaryOwner(){
+  const {data: owner} = SolidaryOwnerLoader();
   const formattedOwner = owner ? formatAddress(owner) : '';
 
   return (
