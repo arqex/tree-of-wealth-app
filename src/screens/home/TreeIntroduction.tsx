@@ -41,7 +41,7 @@ export default class TreeIntroduction extends Component<TreeIntroductionProps, T
           <Text block>
             Everytime a new host pays for The Tree, <b>the coins are distributed among all the previous hosts</b>. Everyone get {priceRaise} MATIC.
           </Text>
-          <Text>So, from the point of the hosts...</Text>
+          <Text>So, from the point of view of the hosts...</Text>
           <Text>
             <ul>
               <li>The sooner you host The Tree, the cheaper it will be for you.</li>
