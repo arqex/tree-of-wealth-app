@@ -1,9 +1,7 @@
-import { BigNumber } from "ethers";
 import { Component } from "react";
 import Spinner from "../../../components/Spinner/Spinner";
 import { Text } from "../../../components/Text/Text";
 import { PriceLoader } from "../../../state/contract/contract.loaders";
-import { getWithdrawResult, isWithdrawing } from "../../../state/transactions/transactions.selectors";
 import { getConnectedAddress } from "../../../state/wallet/wallet.selectors";
 import { formatAddress } from "../../../utils/format";
 import { HostDialog } from "./components/HostDialog";
@@ -53,13 +51,6 @@ class PotentialNewBuyerContent extends Component<PotentialNewBuyerContentProps, 
       </div>
     )
   }
-}
-
-function isWithdrawVisible( amount: BigNumber ) {
-  return amount.toNumber() > 0 ||
-    isWithdrawing() ||
-    Boolean(getWithdrawResult())
-  ;
 }
  
 export default PotentialNewBuyerContent;

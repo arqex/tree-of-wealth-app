@@ -45,12 +45,12 @@ class CurrentHostContent extends Component<CurrentHostContentProps, CurrentHostC
 
   renderWithdraw() {
     const address = getConnectedAddress();
-    const {data: amount, isLoading, error, retry} = AvailableToWithdrawLoader(address);
+    const {data: amount, error} = AvailableToWithdrawLoader(address);
 
     if( error ){
       return (
         <div className={`${styles.section} ${styles.pod}`}>
-          There was an error loading the amount available to withdraw. <a >Retry to load</a>
+          There was an error loading the amount available to withdraw. <a href="#1" >Retry to load</a>
         </div>
       );
     }
