@@ -77,7 +77,10 @@ const items = [
           No. When you host The Tree, you will see it in your wallet as any other NFT, but if you try to sell it using NFT marketplaces like <Link href={getOpenSeaURL()}>OpenSea</Link> you will get an error.
         </Text>
         <Text block>
-          The Tree of Wealth will be transfered to any wallet that pays {getPriceRaise()} MATIC more than what you paid, and that amount will be distributed among all the previous hosts.
+          The only way of transfering The Tree is by the recipient wallet to pay {getPriceRaise()} MATIC more than what you paid.
+        </Text>
+        <Text block>
+          When somebody takes The Tree from your wallet, you won't get the coins that were paid. Instead, the amount will be distributed among all the previous hosts, and you only will get your part.
         </Text>
       </div>
     ),
