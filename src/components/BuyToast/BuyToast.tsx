@@ -36,7 +36,7 @@ class BuyToast extends Component<BuyToastProps, BuyToastState> {
       return <div>Waiting for finishing buying The Tree...</div>;
     }
     else if( result?.result === 'ok' ){
-      return <div>The wait has finished. You are the new owner of the Tree of Wealth. <a onClick={ this._discard }>Close</a></div>
+      return <div>The wait has finished. You are the new owner of the Tree of Wealth. <a href="#1" onClick={ this._discard }>Close</a></div>
     }
     else if( result?.result === 'error' ){
       return <div>{result?.error}</div>;

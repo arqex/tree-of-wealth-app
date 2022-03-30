@@ -35,7 +35,7 @@ const items = [
           The Tree of Wealth works thanks to a smart contract. That means that it's programmed to always distribute the purchase gains through the previous owners of The Tree, and that behavior can't be changed, censured nor taken down.
         </Text>
         <Text block>
-          The contract is open-sourced and <a>available here</a>. Anybody can have a look and audit how it works.
+          The contract is open-sourced and <a href="#1">available here</a>. Anybody can have a look and audit how it works.
         </Text>
       </div>
     )

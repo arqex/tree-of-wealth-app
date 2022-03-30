@@ -36,10 +36,10 @@ export default class TreeIntroduction extends Component<TreeIntroductionProps, T
             The wallet holding The Tree is called <b>the host</b>, and the host cannot sell or transfer this token freely as they please.
           </Text>
           <Text block>
-            Instead, anyone can become the new host of The Tree <b>by paying {getPriceRaise()} MATIC more</b> than the current host.
+            Instead, anyone can become the new host of The Tree <b>by paying {priceRaise} MATIC more</b> than the current host.
           </Text>
           <Text block>
-            Everytime a new host buy The Tree, <b>the paid coins are distributed among all the previous hosts</b>. Everyone get {getPriceRaise()} MATIC.
+            Everytime a new host buy The Tree, <b>the paid coins are distributed among all the previous hosts</b>. Everyone get {priceRaise} MATIC.
           </Text>
           <Text>So, from the point of the hosts...</Text>
           <Text>

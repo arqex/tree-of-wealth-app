@@ -34,7 +34,7 @@ class CurrentHostContent extends Component<CurrentHostContentProps, CurrentHostC
             Being the host of The Tree is an honor. Surely all your friends at our favorite social media would love to know
           </Text>
           <Text block>
-            <a>Twitter</a> - <a>Facebook</a> - <a>Instagram</a> - <a>TikTok</a>
+            <a href="#1">Twitter</a> - <a href="#1">Facebook</a> - <a href="#1">Instagram</a> - <a href="#1">TikTok</a>
           </Text>
         </div>
           { this.renderWithdraw() }

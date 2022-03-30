@@ -67,9 +67,6 @@
     opacity: 1;
   }
 
-  .menu {
-  }
-
   .visible .menu {
     transform: translateX(0);
   }

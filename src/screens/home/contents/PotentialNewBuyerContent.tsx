@@ -42,7 +42,7 @@ class PotentialNewBuyerContent extends Component<PotentialNewBuyerContentProps, 
     if( !price || error ){
       return (
         <div className={`${styles.section} ${styles.pod}`}>
-          There was an error loading the price of The Tree. <a>Retry to load</a>
+          There was an error loading the price of The Tree. <a href="#1">Retry to load</a>
         </div>
       );
     }

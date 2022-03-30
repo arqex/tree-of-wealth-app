@@ -31,7 +31,7 @@ export default class FaqScreen extends Component<FaqScreenProps, FaqScreenState>
               <Text type="h2">The Tree of Wealth FAQ</Text>
             </div>
             <div className={styles.menuToggler}>
-              <a onClick={ this._toggle }>
+              <a  href="#1" onClick={ this._toggle }>
                 <FontAwesomeIcon icon={ faBars } />
               </a>
             </div>
@@ -54,7 +54,7 @@ export default class FaqScreen extends Component<FaqScreenProps, FaqScreenState>
         <div className={styles.menu}>
           <FaqQuestionList />
         </div>
-        <a className={styles.menuOverlay} onClick={this._toggle}></a>
+        <a href="#1" className={styles.menuOverlay} onClick={this._toggle}> </a>
       </div>
     )
   }
@@ -89,7 +89,7 @@ export default class FaqScreen extends Component<FaqScreenProps, FaqScreenState>
 
   _renderQuestion = (item: FaqItem ) => {
     return (
-      <a className={styles.questionItem} key={item.id}>
+      <a  href="#1" className={styles.questionItem} key={item.id}>
         <Text>{item.question}</Text>
       </a>
     );
