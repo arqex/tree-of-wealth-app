@@ -1,8 +1,10 @@
 import { Component } from "react";
+import Link from "../../../components/Link/Link";
 import { Text } from "../../../components/Text/Text";
 import { AvailableToWithdrawLoader } from "../../../state/contract/contract.loaders";
 import { requestAddressConnection } from "../../../state/wallet/wallet.actions";
 import { getConnectedAddress, isWalletAvailable } from "../../../state/wallet/wallet.selectors";
+import { getOpenSeaURL } from "../../../utils/networks";
 import { LearnMoreLink } from "./components/LearnMoreLinkt";
 import { WithdrawDialog } from "./components/WithdrawDialog";
 import styles from './homeContents.module.css';
@@ -26,7 +28,7 @@ class CurrentHostContent extends Component<CurrentHostContentProps, CurrentHostC
         <Text type="h2" margin="l">Welcome dear Host, The Tree will always be grateful.</Text>
         <div className={styles.section}>
           <Text block>
-            While you are the host you can use The Tree as any other NFT. The only thing you can’t do it transfer or sell it. Check it out at <a>OpenSea</a>.
+            While you are the host you can use The Tree as any other NFT. The only thing you can’t do it transfer or sell it. Check it out at <Link href={getOpenSeaURL()}>OpenSea</Link>.
           </Text>
           <Text block>
             Being the host of The Tree is an honor. Surely all your friends at our favorite social media would love to know

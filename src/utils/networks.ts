@@ -5,7 +5,8 @@ export interface NetworkDefinition {
   contractAddress: string,
   rpc?: string,
   symbol?: string,
-  blockExplorer?: string
+  blockExplorer?: string,
+  openSeaURL?: string
 }
 
 const networks: {[id: number]: NetworkDefinition} = {
@@ -24,7 +25,8 @@ const networks: {[id: number]: NetworkDefinition} = {
     contractAddress: "0x0ae8daf0d0bcc03d630ca46f579a48137f1e1eae",
     rpc: 'https://rpc-mumbai.matic.today',
     symbol: 'MATIC',
-    blockExplorer: 'https://mumbai.polygonscan.com/'
+    blockExplorer: 'https://mumbai.polygonscan.com/',
+    openSeaURL: 'https://testnets.opensea.io/collection/the-tree-of-wealth-v2'
   },
 }
 
@@ -46,4 +48,12 @@ export function getContractAddress( chainId: number): string {
 
 export function getMainNetworkDetails(){
   return networks[80001];
+}
+
+export function getOpenSeaURL() {
+  return getMainNetworkDetails()?.openSeaURL || '';
+}
+
+export function getTheTreeOpenSeaURL() {
+  return 'https://testnets.opensea.io/assets/mumbai/0x0ae8daf0d0bcc03d630ca46f579a48137f1e1eae/1';
 }

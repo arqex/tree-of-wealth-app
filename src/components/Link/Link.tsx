@@ -1,4 +1,5 @@
 import { Component, LinkHTMLAttributes } from "react";
+import { scrollToAnchor } from "../../utils/scrollToAnchor";
 
 interface LinkProps extends LinkHTMLAttributes<HTMLLinkElement> {
   
@@ -31,13 +32,16 @@ class Link extends Component<LinkProps, LinkState> {
 
   _onClick = (e: any) => {
     const {onClick} = this.props;
-    const href = e.target.getAttribute('href');
+    const href = e.currentTarget.getAttribute('href');
     if( href[0] === '/' ){
       e.preventDefault();
       // @ts-ignore
       window.history.pushState({}, '', href);
       // @ts-ignore
       window.onpopstate();
+    }
+    else if( href[0] === '#' ){
+      scrollToAnchor(e);
     }
 
     onClick && onClick(e);

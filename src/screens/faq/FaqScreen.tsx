@@ -5,6 +5,7 @@ import styles from './FaqScreen.module.css';
 import {faBars} from '@fortawesome/free-solid-svg-icons'
 import faqItems, { FaqItem } from './FaqItems';
 import { mergeClasses } from "../../utils/mergeClasses";
+import FaqQuestionList from "./FaqQuestionList";
 
 interface FaqScreenProps {
   
@@ -51,7 +52,7 @@ export default class FaqScreen extends Component<FaqScreenProps, FaqScreenState>
     return (
       <div className={classes}>
         <div className={styles.menu}>
-          { this.renderQuestionList() }
+          <FaqQuestionList />
         </div>
         <a className={styles.menuOverlay} onClick={this._toggle}></a>
       </div>
@@ -67,7 +68,7 @@ export default class FaqScreen extends Component<FaqScreenProps, FaqScreenState>
 
   _renderAnswer = (item: FaqItem ) => {
     return (
-      <div className={styles.answerItem} key={item.id} >
+      <div className={styles.answerItem} key={item.id} id={item.id} >
         <div className={styles.answerItemQuestion}>
           <Text type="h3" block>{item.question}</Text>
         </div>
