@@ -1,10 +1,9 @@
 import { BigNumber, BigNumberish, ethers } from 'ethers';
 import { Component } from 'react';
 import Button from '../../../../components/Button/Button';
-import { ErrorMessage } from '../../../../components/ErrorMessage/ErrorMesage';
 import Pod from '../../../../components/Pod/Pod';
 import { withdraw } from '../../../../state/transactions/transactions.actions';
-import { resetWithdrawResult, TransactionResult } from '../../../../state/transactions/transactions.reducers';
+import { resetWithdrawResult } from '../../../../state/transactions/transactions.reducers';
 import { isWithdrawing, getWithdrawResult } from '../../../../state/transactions/transactions.selectors';
 import styles from '../homeContents.module.css';
 

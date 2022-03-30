@@ -5,7 +5,6 @@ import {TreeOfWealth} from '../../../types/ethers-contracts';
 import { getContractAddress, isValidNetwork } from "../../utils/networks";
 import { invalidateAvailableToWithdraw, invalidateHost, invalidateHostsCount, invalidateSolidaryValue, invalidatePrice } from "./contract.loaders";
 import { refreshUI } from "../stateManager";
-import { resetBuyResult, resetWithdrawResult } from "../transactions/transactions.reducers";
 
 export function getContract(): TreeOfWealth | undefined {
   let signer = getSigner();

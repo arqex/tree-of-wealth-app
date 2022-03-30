@@ -18,7 +18,7 @@ class HomeLayout extends Component<HomeLayoutProps, HomeLayoutState> {
     return (
       <div className={ styles.layoutContainer }>
         <div className={ styles.layoutImage}>
-          <img src={tree} />
+          <img src={tree} alt="The Tree" />
         </div>
         <Text type="h1" margin="xs">{title}</Text>
         <div className={styles.layoutContent}>{content}</div>
