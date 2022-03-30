@@ -33,13 +33,13 @@ export default class TreeIntroduction extends Component<TreeIntroductionProps, T
             But in this collection there is <b>one very special NFT</b> like no other. It's called <Link href={getTheTreeOpenSeaURL()}>The Tree</Link>.
           </Text>
           <Text block>
-            The wallet holding The Tree is called <b>the host</b>, and the host cannot sell or transfer this token freely as they please.
+            The wallet holding The Tree is called <b>the host</b>. Unlike any other NFT, <b>hosts cannot sell nor transfer The Tree</b> as they please.
           </Text>
           <Text block>
             Instead, anyone can become the new host of The Tree <b>by paying {priceRaise} MATIC more</b> than the current host.
           </Text>
           <Text block>
-            Everytime a new host buy The Tree, <b>the paid coins are distributed among all the previous hosts</b>. Everyone get {priceRaise} MATIC.
+            Everytime a new host pays for The Tree, <b>the coins are distributed among all the previous hosts</b>. Everyone get {priceRaise} MATIC.
           </Text>
           <Text>So, from the point of the hosts...</Text>
           <Text>
@@ -52,7 +52,7 @@ export default class TreeIntroduction extends Component<TreeIntroductionProps, T
         </div>
         <div>
           <Text>
-            After reading all of this, you might want to <a href="#main" onClick={scrollToAnchor}>host The Tree now</a>. But you'll probably have more questions, have a look at the <Link href="/faq">frequent asked questions about The Tree of Wealth</Link>.
+            After reading all of this, you might want to <a href="#main" onClick={scrollToAnchor}>host The Tree now</a>. Or probably you still need to know more: have a look at the <Link href="/faq">frequent asked questions about The Tree of Wealth</Link>.
           </Text>
         </div>
       </div>
