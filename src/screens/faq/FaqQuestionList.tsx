@@ -6,7 +6,7 @@ import faqItems, { FaqItem } from './FaqItems';
 import styles from './FaqScreen.module.css';
 
 interface FaqQuestionListProps {
-  
+  onSelected: any
 }
  
 interface FaqQuestionListState {
@@ -24,7 +24,7 @@ class FaqQuestionList extends Component<FaqQuestionListProps, FaqQuestionListSta
 
   _renderQuestion = (item: FaqItem ) => {
     return (
-      <Link className={styles.questionItem} key={item.id} href={`#${item.id}`}>
+      <Link className={styles.questionItem} key={item.id} href={`#${item.id}`} onClick={this.props.onSelected}>
         <Text>{item.question}</Text>
       </Link>
     );

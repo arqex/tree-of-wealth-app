@@ -52,7 +52,7 @@ export default class FaqScreen extends Component<FaqScreenProps, FaqScreenState>
     return (
       <div className={classes}>
         <div className={styles.menu}>
-          <FaqQuestionList />
+          <FaqQuestionList onSelected={ this._close } />
         </div>
         <a href="#1" className={styles.menuOverlay} onClick={this._toggle}> </a>
       </div>
@@ -79,20 +79,11 @@ export default class FaqScreen extends Component<FaqScreenProps, FaqScreenState>
     );
   }
 
-  renderQuestionList() {
-    return (
-      <div className={styles.questionList}>
-        { faqItems.map( this._renderQuestion ) }
-      </div>
-    );
-  }
-
-  _renderQuestion = (item: FaqItem ) => {
-    return (
-      <a  href="#1" className={styles.questionItem} key={item.id}>
-        <Text>{item.question}</Text>
-      </a>
-    );
+  _close = () => {
+    if( this.animating ) return;
+    if( this.state.isMenuOpen ){
+      this._toggle();
+    }
   }
 
   animating = false;
