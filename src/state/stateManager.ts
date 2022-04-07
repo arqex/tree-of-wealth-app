@@ -1,12 +1,7 @@
 import { ethers } from 'ethers';
 import Lorese from 'lorese';
+import { NftDetails, Owner } from './state.types';
 import { RCPError } from './transactions/transactions.reducers';
-
-interface Owner {
-  address: string,
-  hasEverBeenOwner: boolean | undefined,
-  availableToWithdraw: ethers.BigNumber | undefined
-}
 
 interface Store {
   knownAddresses: string[],
@@ -36,6 +31,9 @@ interface Store {
     inProcess: boolean,
     result: 'ok' | 'error' | undefined,
     error: RCPError | undefined
+  },
+  nftDetails: {
+    [id: string]: NftDetails
   }
 }
 
@@ -68,7 +66,8 @@ const store: Store = {
     inProcess: false,
     result: undefined,
     error: undefined
-  }
+  },
+  nftDetails: {}
 }
 
 // Create our state manager
