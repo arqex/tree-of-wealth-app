@@ -9,12 +9,6 @@ interface NftScreenProps {
 interface NftScreenState {
   
 }
-
-interface NftDefinition {
-  id: string
-  type: 'tow' | 'host' | 'repeatingHost' | 'unknown',
-  number: number
-}
  
 class NftScreen extends Component<NftScreenProps, NftScreenState> {
   render() {
