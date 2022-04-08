@@ -42,12 +42,18 @@ class NoConnectedContent extends Component<NoConnectedContentProps, NoConnectedC
     );
   }
 
-  _onConnectWallet = () => {
+  _onConnectWallet = async () => {
     if( isWalletAvailable() ){
-      requestAddressConnection();
+      requestAddressConnection()
+        .catch( err => {
+          if( err?.code === -32002 ){
+            console.log('Please check your metamask plugin');
+          }
+        })
     }
-
-    this.setState({isWalletModalOpen: true});
+    else {
+      this.setState({isWalletModalOpen: true});
+    }
   }
 
   _closeModal = () => {
