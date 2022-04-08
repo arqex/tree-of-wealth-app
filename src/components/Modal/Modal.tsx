@@ -15,6 +15,7 @@ export default function Modal(props: ModalProps) {
     afterOpen: styles.modalOpen,
     beforeClose: styles.modalClose
   };
+
   const st = {
     overlay: {
       display: 'flex',
@@ -35,4 +36,17 @@ export default function Modal(props: ModalProps) {
       className={cn}
       closeTimeoutMS={300} {...props} />
   );
+}
+
+
+export function ModalTitle(props: any) {
+  return <div className={styles.title}>{props.children}</div>;
+}
+
+export function ModalContent(props: any) {
+  return <div className={styles.content}>{props.children}</div>;
+}
+
+export function ModalControls(props: any) {
+  return <div className={styles.controls}>{props.children}</div>;
 }

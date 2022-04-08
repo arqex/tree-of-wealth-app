@@ -6,3 +6,11 @@ export const onSignerConnected = stateManager.reducer<string>( (store, connected
     connectedSignerAddress
   }
 })
+
+
+export const setIsWalletAvailable = stateManager.reducer<boolean>( (store, isWalletAvailable) => {
+  return {
+    ...store, 
+    isWalletAvailable
+  }
+});

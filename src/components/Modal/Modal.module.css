@@ -16,3 +16,23 @@
   opacity: 0;
   transform: scale(.7);
 }
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.content {
+  margin-bottom: 20px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.controls > * {
+  margin-left: 10px;
+}

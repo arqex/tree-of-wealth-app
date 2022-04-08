@@ -3,7 +3,7 @@ import styles from './Home.module.css';
 import { isValidNetwork } from "../../utils/networks";
 import { AccountLoader, NetworkLoader } from "../../state/wallet/wallet.loaders";
 import { HasBeenHostLoader, HostLoader } from "../../state/contract/contract.loaders";
-import NoConenctedContent from "./contents/NoConnectedContent";
+import NoConnectedContent from "./contents/NoConnectedContent";
 import FormerHostContent from "./contents/FormerHostContent";
 import CurrentHostContent from "./contents/CurrentHostContent";
 import PotentialNewBuyerContent from "./contents/PotentialNewBuyerContent";
@@ -13,6 +13,7 @@ import TransactionLayer from "./TransactionLayer";
 import { getTransactionStatus } from "../../state/transactions/transactions.selectors";
 import NetworkNotValidContent from "./contents/NetworkNotValidContent";
 import TreeIntroduction from "./TreeIntroduction";
+import { isWalletAvailable } from "../../state/wallet/wallet.selectors";
 
 interface HomeScreenProps {
   
@@ -54,6 +55,9 @@ class HomeScreen extends Component<HomeScreenProps, HomeScreenState> {
   }
 
   renderContent() {
+    if( !isWalletAvailable() ){
+      return <NoConnectedContent />;
+    }
     const {data: network, isLoading: isNetworkLoading} = NetworkLoader();
     const {data: account} = AccountLoader();
 
@@ -62,7 +66,7 @@ class HomeScreen extends Component<HomeScreenProps, HomeScreenState> {
     }
 
     if( !account ){
-      return <NoConenctedContent />;
+      return <NoConnectedContent />;
     }
 
     if( !isValidNetwork(network.chainId) ){
