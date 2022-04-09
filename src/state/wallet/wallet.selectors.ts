@@ -1,9 +1,13 @@
 import { ethers } from "ethers";
 import { stateManager } from "../stateManager";
 
+let web3Provider: ethers.providers.ExternalProvider | undefined;
+export function setWeb3Provider( provider: ethers.providers.ExternalProvider ){
+  web3Provider = provider;
+}
+
 export function getWeb3Provider() : ethers.providers.ExternalProvider | undefined {
-  //@ts-ignore
-  return window.ethereum;
+  return web3Provider;
 }
 
 export function isWalletAvailable() {

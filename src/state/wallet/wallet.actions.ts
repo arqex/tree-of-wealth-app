@@ -1,11 +1,13 @@
 import { ethers } from "ethers";
 import { AccountLoader, invalidateAccount, invalidateNetwork } from "./wallet.loaders";
 import { onSignerConnected } from "./wallet.reducers";
-import { getWeb3Provider } from "./wallet.selectors";
+import { setWeb3Provider } from "./wallet.selectors";
+import detectEthereumProvider from '@metamask/detect-provider'
 
-export function initializeWallet() {
-  const ethereum = getWeb3Provider();
+export async function initializeWallet() {
+  const ethereum = await detectEthereumProvider() as ethers.providers.ExternalProvider;
   if( ethereum ){
+    setWeb3Provider(ethereum);
     // Listen to network and account changes
     // @ts-ignore
     ethereum.on('accountsChanged', invalidateAccount );

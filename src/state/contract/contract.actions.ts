@@ -30,8 +30,8 @@ export function bindContractListeners( chainId: number ){
         refreshUI();
       });
 
-      contract.on('OrphanOwnerChange', () => {
-        console.log('Orphan owner event received!');
+      contract.on('SolidaryOwnerChange', () => {
+        console.log('Solidary owner event received!');
         invalidateAvailableToWithdraw();
         refreshUI();
       });

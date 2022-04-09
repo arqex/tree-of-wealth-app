@@ -21,3 +21,11 @@ export interface NftDetails {
     attributes: NftAttribute[]
   }
 }
+
+export interface NftActivity {
+  hash: string
+  date: string
+  tokenId: number
+  from: string
+  to: string
+}
