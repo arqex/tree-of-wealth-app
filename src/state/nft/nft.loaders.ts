@@ -32,7 +32,8 @@ export const NftActivityLoader = stateManager.loader<string, NftActivity[]>({
   async load(id) {
     return fetch(`${API_URL}nftactivity/${id}`)
       .then( res => res.json() )
-      .then( stateManager.reducer( (store, activity: NftActivity) => {
+      // @ts-ignore
+      .then( stateManager.reducer( (store, activity: NftActivity[]) => {
         return {
           ...store,
           nftActivity: {

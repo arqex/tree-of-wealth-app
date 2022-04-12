@@ -1,6 +1,6 @@
 import { ethers } from 'ethers';
 import Lorese from 'lorese';
-import { NftDetails, Owner } from './state.types';
+import { NftActivity, NftDetails, Owner } from './state.types';
 import { RCPError } from './transactions/transactions.reducers';
 
 interface Store {
@@ -34,6 +34,9 @@ interface Store {
   },
   nftDetails: {
     [id: string]: NftDetails
+  },
+  nftActivity: {
+    [id: string]: NftActivity[]
   }
 }
 
@@ -67,7 +70,8 @@ const store: Store = {
     result: undefined,
     error: undefined
   },
-  nftDetails: {}
+  nftDetails: {},
+  nftActivity: {}
 }
 
 // Create our state manager

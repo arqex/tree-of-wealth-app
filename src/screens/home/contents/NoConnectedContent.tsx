@@ -1,11 +1,12 @@
 import { Component } from "react";
 import Button from "../../../components/Button/Button";
-import Link from "../../../components/Link/Link";
-import Modal, { ModalContent, ModalTitle } from "../../../components/Modal/Modal";
+import Modal from "../../../components/Modal/Modal";
 import { Text } from "../../../components/Text/Text";
 import { requestAddressConnection } from "../../../state/wallet/wallet.actions";
 import { isWalletAvailable } from "../../../state/wallet/wallet.selectors";
 import { scrollToAnchor } from "../../../utils/scrollToAnchor";
+import { openConnectModal } from "../../../utils/web3ConnectModal";
+import ConnectWalletModal from "./components/ConnectWalletModal";
 
 interface NoConnectedContentProps {
   
@@ -31,12 +32,7 @@ class NoConnectedContent extends Component<NoConnectedContentProps, NoConnectedC
         </Button>
         <Modal isOpen={this.state.isWalletModalOpen}
           onRequestClose={this._closeModal } maxWidth="500px">
-            <ModalTitle>Install a wallet</ModalTitle>
-            <ModalContent>
-              <div>
-                Right now the only supported wallet is Metamask. Please follow <Link href="https://metamask.io/download/">this link to install Metamask</Link>.
-              </div>
-            </ModalContent>
+            <ConnectWalletModal />
         </Modal>
       </div>
     );
@@ -52,7 +48,7 @@ class NoConnectedContent extends Component<NoConnectedContentProps, NoConnectedC
         })
     }
     else {
-      this.setState({isWalletModalOpen: true});
+      openConnectModal();
     }
   }
 

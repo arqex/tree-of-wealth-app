@@ -3,7 +3,7 @@ export interface NetworkDefinition {
   chainId: number,
   type: 'test' | 'production',
   contractAddress: string,
-  rpc?: string,
+  rpc: string,
   symbol?: string,
   blockExplorer?: string,
   openSeaURL?: string

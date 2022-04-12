@@ -40,11 +40,10 @@ export async function withdraw(){
     invalidateAvailableToWithdraw();
   }
   catch( err ){
-    console.error( err );
     setWithdrawResult({
       result: 'error',
       // @ts-ignore
-      error: err?.data || (err.code && err) || {code: -1, message: 'Unknown error'}
+      error: err?.data || (err.code && err) || guessError(err)
     })
   }
 }
@@ -71,3 +70,11 @@ export async function setSolidaryOwner( address: string, name: string ){
   }
 }
 
+
+
+function guessError( err: Error ){
+  if( err?.message.includes('rejected')){
+    return {code: 4001, message: 'User rejected the transaction'};
+  }
+  return {code: -1, message: 'Unknown error'};
+}

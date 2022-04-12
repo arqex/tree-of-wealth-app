@@ -83,6 +83,8 @@ class TransactionLayer extends Component<TransactionLayerProps, TransactionLayer
       );
     }
 
+    console.log(result);
+
     return this.renderTransactError(result, 'I was not possible to transfer the coins to your wallet because of the following reason:');
   }
 
@@ -95,7 +97,7 @@ class TransactionLayer extends Component<TransactionLayerProps, TransactionLayer
           <div className={styles.spinner}>
             <Spinner />
           </div>
-          <Text type="small">Withdraw process might take some minutes to finish.</Text>
+          <Text type="small">After accepting, Withdraw process might take some minutes to finish.</Text>
         </Pod>
       </div>
     )
@@ -149,7 +151,7 @@ class TransactionLayer extends Component<TransactionLayerProps, TransactionLayer
           <div className={styles.spinner}>
             <Spinner />
           </div>
-          <Text>It might take some minutes to finish...</Text>
+          <Text>After accepting, it might take some minutes to finish...</Text>
         </Pod>
       </div>
     )
