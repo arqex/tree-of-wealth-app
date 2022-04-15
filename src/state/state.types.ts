@@ -22,6 +22,10 @@ export interface NftDetails {
   }
 }
 
+export interface NftError {
+  error: string
+}
+
 export interface NftActivity {
   hash: string
   date: string

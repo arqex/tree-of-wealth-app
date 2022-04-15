@@ -1,6 +1,6 @@
 import { ethers } from 'ethers';
 import Lorese from 'lorese';
-import { NftActivity, NftDetails, Owner } from './state.types';
+import { NftActivity, NftDetails, NftError, Owner } from './state.types';
 import { RCPError } from './transactions/transactions.reducers';
 
 interface Store {
@@ -33,7 +33,7 @@ interface Store {
     error: RCPError | undefined
   },
   nftDetails: {
-    [id: string]: NftDetails
+    [id: string]: NftDetails | NftError
   },
   nftActivity: {
     [id: string]: NftActivity[]

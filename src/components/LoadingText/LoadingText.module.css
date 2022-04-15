@@ -1,0 +1,21 @@
+.container {
+  position: relative;
+
+}
+
+.placeholder {
+  visibility: hidden;
+}
+
+.bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 4px;
+  background-color: #333;
+  animation: glare .8s alternate infinite;
+}
+
+@keyframes glare {
+  from {opacity: .2}
+  to {opacity: .4}
+}

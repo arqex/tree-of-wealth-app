@@ -1,9 +1,9 @@
-import { NftActivity, NftDetails } from "../state.types";
+import { NftActivity, NftDetails, NftError } from "../state.types";
 import { stateManager } from "../stateManager";
 
 const API_URL = 'https://5dbl2elri2.execute-api.us-east-1.amazonaws.com/';
 
-export const NftDetailsLoader = stateManager.loader<string, NftDetails>({
+export const NftDetailsLoader = stateManager.loader<string, NftDetails|NftError>({
   selector(store, id) {
     return store.nftDetails[id];
   },
@@ -11,7 +11,7 @@ export const NftDetailsLoader = stateManager.loader<string, NftDetails>({
   async load(id) {
     return fetch(`${API_URL}nftdetails/${id}`)
       .then( res => res.json() )
-      .then( stateManager.reducer( (store, details: NftDetails) => {
+      .then( stateManager.reducer( (store, details: NftDetails|NftError) => {
         return {
           ...store,
           nftDetails: {
