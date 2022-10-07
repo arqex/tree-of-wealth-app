@@ -1,5 +1,5 @@
 import * as React from 'react';
-import tree from '../../home/tree.png'
+import tree from '../../home/tree.svg'
 
 interface TowImageProps {
   

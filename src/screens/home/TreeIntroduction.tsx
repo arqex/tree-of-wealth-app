@@ -4,6 +4,7 @@ import { Text } from "../../components/Text/Text";
 import { getPriceRaise } from "../../state/transactions/transactions.selectors";
 import { getOpenSeaURL, getTheTreeOpenSeaURL } from "../../utils/networks";
 import { scrollToAnchor } from "../../utils/scrollToAnchor";
+import styles from './Home.module.css';
 
 
 interface TreeIntroductionProps {
@@ -19,7 +20,7 @@ export default class TreeIntroduction extends Component<TreeIntroductionProps, T
     const priceRaise = getPriceRaise();
 
     return (
-      <div>
+      <div className={ styles.introContent }>
         <div style={{textAlign: 'center'}}>
           <Text type="h1" margin="l">
             What is The Tree of Wealth?
@@ -27,13 +28,10 @@ export default class TreeIntroduction extends Component<TreeIntroductionProps, T
         </div>
         <div>
           <Text block>
-            The Tree of Wealth is just a <b>NFT collection</b>, you can check how it looks in <Link href={getOpenSeaURL()}>OpenSea</Link>.
+            The Tree of Wealth is a <b><Link href={getOpenSeaURL()}>NFT collection</Link></b> that contains <b>one very special NFT</b> like no other. It's called <b><Link href={getTheTreeOpenSeaURL()}>The Tree</Link></b>.
           </Text>
           <Text block>
-            But in this collection there is <b>one very special NFT</b> like no other. It's called <Link href={getTheTreeOpenSeaURL()}>The Tree</Link>.
-          </Text>
-          <Text block>
-            The wallet holding The Tree is called <b>the host</b>. Unlike any other NFT, <b>hosts cannot sell nor transfer The Tree</b> as they please.
+            The wallet holding The Tree is called <b>the host</b>. Unlike with any other NFT, <b>hosts cannot sell nor transfer The Tree</b> as they please.
           </Text>
           <Text block>
             Instead, anyone can become the new host of The Tree <b>by paying {priceRaise} MATIC more</b> than the current host.
@@ -51,8 +49,11 @@ export default class TreeIntroduction extends Component<TreeIntroductionProps, T
           </Text>
         </div>
         <div>
+          <Text block>
+            All of this happen automatically, in a decentralized way, thanks to an open-source smart contract running on the Ethereum network.
+          </Text>
           <Text>
-            After reading all of this, you might want to <a href="#main" onClick={scrollToAnchor}>host The Tree now</a>. Or probably you still need to know more: have a look at the <Link href="/faq">frequent asked questions about The Tree of Wealth</Link>.
+            After reading all of this, you might want to <a href="#main" onClick={scrollToAnchor}>host The Tree now</a>. Or maybe know more by visiting the <Link href="/faq">frequent asked questions about The Tree of Wealth</Link>.
           </Text>
         </div>
       </div>

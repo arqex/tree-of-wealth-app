@@ -10,9 +10,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 620px;
+  width: 100%;
   margin: 0 20px;
-  padding: 50px 0;
+  position: relative;
 }
 
 .layoutContainer {
@@ -20,13 +20,76 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 620px;
+  padding: 50px 0;
+}
+
+
+.bg {
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  z-index: -1;
+}
+
+.bg_layer1 {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 200px;
+  background-color: #441122;
+}
+
+.bg_layer2 {
+  position: absolute;
+  top: 80px; left: -50%; right: -50%; bottom: 0;
+  background-color: #882155;
+  border-top-left-radius: 40%;
+  border-top-right-radius: 60%;
+}
+
+.bg_layer3 {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 80px;
+  border-top-left-radius: 62%;
+  border-top-right-radius: 31%;
+  background: #993388;
+}
+
+.bg_layer4 {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 200px;
+  background-color: #993388;
+}
+
+.bg_layer5 {
+  position: absolute;
+  top: 80px; left: -50%; right: -50%; bottom: 0;
+  background-color: #882155;
+  border-top-left-radius: 32%;
+  border-top-right-radius: 55%;
+}
+
+.bg_layer6 {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 80px;
+  border-top-left-radius: 62%;
+  border-top-right-radius: 31%;
+  background: #dd88bb;
+}
+
+
+.fg {
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  z-index: 2;
 }
 
 .layoutImage {
   width: 200px;
   height: 200px;
-  padding: 30px;
-  border: 2px solid black;
+  border: 10px solid #fff;
   overflow: hidden;
   box-sizing: border-box;
   margin-bottom: 30px;
@@ -48,4 +111,21 @@
 .separator {
   display: inline-block;
   width: 10px;
+}
+
+.aboutSection {
+}
+
+.introContent {
+  max-width: 620px;
+}
+
+.titleLogo {
+  background: url('tow_title.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  height: 50px;
+  margin-bottom: 20px;
+  color: transparent
 }

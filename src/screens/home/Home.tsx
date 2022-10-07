@@ -14,6 +14,7 @@ import { getTransactionStatus } from "../../state/transactions/transactions.sele
 import NetworkNotValidContent from "./contents/NetworkNotValidContent";
 import TreeIntroduction from "./TreeIntroduction";
 import { isWalletAvailable } from "../../state/wallet/wallet.selectors";
+import classnames from 'classnames';
 
 interface HomeScreenProps {
   
@@ -28,12 +29,21 @@ class HomeScreen extends Component<HomeScreenProps, HomeScreenState> {
     return (
       <div className={styles.container}>
         <div className={styles.homeSection} id="main">
+          <div className={ styles.bg }>
+            <div className={styles.bg_layer1} />
+            <div className={styles.bg_layer2} />
+            <div className={styles.bg_layer3} />
+          </div>
           <HomeLayout
             title="The Tree of Wealth"
             content={ this.renderTransactionContainer() } />
-
         </div>
-        <div className={styles.homeSection} id="about">
+        <div className={classnames(styles.homeSection, styles.aboutSection)} id="about">
+          <div className={ styles.bg }>
+            <div className={styles.bg_layer4} />
+            <div className={styles.bg_layer5} />
+            <div className={styles.bg_layer6} />
+          </div>
           <TreeIntroduction />
         </div>
       </div>

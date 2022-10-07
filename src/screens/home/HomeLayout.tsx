@@ -1,6 +1,6 @@
 import { Component } from "react";
 import styles from './Home.module.css';
-import tree from './tree.png';
+import tree from './tree.svg';
 import {Text} from '../../components/Text/Text';
 
 interface HomeLayoutProps {
@@ -20,7 +20,7 @@ class HomeLayout extends Component<HomeLayoutProps, HomeLayoutState> {
         <div className={ styles.layoutImage}>
           <img src={tree} alt="The Tree" />
         </div>
-        <Text type="h1" margin="xs">{title}</Text>
+        <Text type="h1" margin="xs" className={styles.titleLogo}>{title}</Text>
         <div className={styles.layoutContent}>{content}</div>
       </div>
     );

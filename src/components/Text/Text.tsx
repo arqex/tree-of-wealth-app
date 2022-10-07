@@ -6,21 +6,23 @@ interface TextProps {
   type?: 'h1' | 'h2' | 'h3' | 'small',
   color?: 'main' | 'secondary' | 'link'
   block?: boolean,
-  margin?: 'xs' | 's' | 'm' | 'l'
+  margin?: 'xs' | 's' | 'm' | 'l',
+  className?: string
 }
  
 interface TextState {}
  
 export class Text extends Component<TextProps, TextState> {
   render() {
-    const {type, color, children, block, margin} = this.props;
+    const {type, color, children, block, margin, className} = this.props;
 
     let classes = mergeClasses(
       styles.text,
       type && styles['type_' + type],
       styles['color_' + color],
       block && styles.block,
-      styles['margin_' + margin]
+      styles['margin_' + margin],
+      className
     );
 
     if( type === 'h1'){

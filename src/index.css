@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #441122;
+  color: #fff;
 }
 
 code {
@@ -13,8 +15,12 @@ code {
 }
 
 a {
-  color: blue;
+  color: inherit;
   text-decoration: underline;
+}
+
+b {
+  color: #ffffa1 !important;
 }
 
 p {
