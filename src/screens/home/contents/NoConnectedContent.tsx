@@ -24,7 +24,7 @@ class NoConnectedContent extends Component<NoConnectedContentProps, NoConnectedC
   render() { 
     return (
       <div>
-        <Text type="h2" margin="l">The Tree will grant wealth to anyone who has ever hosted it.</Text>
+        <Text type="h2" margin="l">Will grant wealth to anyone who has ever hosted it</Text>
         <Button width={160} href="#about" onClick={ scrollToAnchor }>How does it work?</Button>
         <span style={{width: 10, display: 'inline-block'}} />
         <Button width={160} onClick={ this._onConnectWallet }>

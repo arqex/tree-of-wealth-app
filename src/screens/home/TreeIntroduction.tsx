@@ -31,13 +31,13 @@ export default class TreeIntroduction extends Component<TreeIntroductionProps, T
             The Tree of Wealth is a <b><Link href={getOpenSeaURL()}>NFT collection</Link></b> that contains <b>one very special NFT</b> like no other. It's called <b><Link href={getTheTreeOpenSeaURL()}>The Tree</Link></b>.
           </Text>
           <Text block>
-            The wallet holding The Tree is called <b>the host</b>. Unlike with any other NFT, <b>hosts cannot sell nor transfer The Tree</b> as they please.
+            The wallet holding The Tree is called <b>the host</b>. Unlike any other NFT, <b>hosts cannot sell nor transfer The Tree</b> as they please.
           </Text>
           <Text block>
-            Instead, anyone can become the new host of The Tree <b>by paying {priceRaise} MATIC more</b> than the current host.
+            Instead, anyone can become the new host of The Tree <b>by paying {priceRaise} ETH more</b> than the current host.
           </Text>
           <Text block>
-            Everytime a new host pays for The Tree, <b>the coins are distributed among all the previous hosts</b>. Everyone get {priceRaise} MATIC.
+            Everytime a new host pays for The Tree, <b>the coins are distributed among all the previous hosts</b>. Everyone get {priceRaise} ETH.
           </Text>
           <Text>So, from the point of view of the hosts...</Text>
           <Text>
@@ -50,10 +50,10 @@ export default class TreeIntroduction extends Component<TreeIntroductionProps, T
         </div>
         <div>
           <Text block>
-            All of this happen automatically, in a decentralized way, thanks to an open-source smart contract running on the Ethereum network.
+            This process happens automatically, in a decentralized way, thanks to an open-source smart contract running on the Ethereum network.
           </Text>
           <Text>
-            After reading all of this, you might want to <a href="#main" onClick={scrollToAnchor}>host The Tree now</a>. Or maybe know more by visiting the <Link href="/faq">frequent asked questions about The Tree of Wealth</Link>.
+            After reading all of this, you might want to <a href="#main" onClick={scrollToAnchor}>host The Tree now</a>. Or maybe you want to know more by visiting the <Link href="/faq">frequent asked questions about The Tree of Wealth</Link>.
           </Text>
         </div>
       </div>

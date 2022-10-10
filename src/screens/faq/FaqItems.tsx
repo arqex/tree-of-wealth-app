@@ -12,15 +12,15 @@ export interface FaqItem {
 const items = [
   {
     id: 'what-do-i-need',
-    question: 'What do I need to buy The Tree?',
+    question: 'What do I need to host The Tree?',
     answer: (
       <div>
-        <Text>The Tree Of Wealth is a NFT that lives in the Polygon blockchain, so you need to connect to that blockchain if you want to host it. To do so:</Text>
+        <Text>The Tree Of Wealth is a NFT that lives in the Ethereum blockchain, so you need to connect to that blockchain if you want to host it. To do so:</Text>
         <ul>
           <li>Install a browser wallet compatible with Ethereum blockchains like <Link href="https://metamask.io/">Metamask</Link>.</li>
-          <li>Configure your wallet to <Link>connect to the Polygon blockchain</Link>.</li>
-          <li>You need to have enough MATIC to become The Tree host. You can buy those coin from exchanges like <Link href="https://www.binance.com/">Binance</Link> or <Link href="https://www.kraken.com/">Kraken</Link>.</li>
-          <li>Once you have MATIC tokens, transfer them to your browser's wallet.</li>
+          <li>Configure your wallet to <Link>connect to the Ethereum blockchain</Link>.</li>
+          <li>You need to have enough ETH to become The Tree host. You can buy those coin from exchanges like <Link href="https://www.binance.com/">Binance</Link> or <Link href="https://www.kraken.com/">Kraken</Link>.</li>
+          <li>Once you have ETH tokens, transfer them to your browser's wallet.</li>
           <li>Connect your wallet into the <Link href="/">Tree of Wealth website</Link> and you are ready to host the tree.</li>
         </ul>
       </div>
@@ -32,7 +32,7 @@ const items = [
     answer: (
       <div>
         <Text block>
-          The Tree of Wealth works thanks to a smart contract. That means that it's programmed to always distribute the purchase gains through the previous owners of The Tree, and that behavior can't be changed, censured nor taken down.
+          The Tree of Wealth works thanks to an immutable smart contract. That means that it's programmed to always distribute new host's coins among the previous hosts. That behavior is automatic, can't be changed, censured nor taken down.
         </Text>
         <Text block>
           The contract is open-sourced and <a href="#1">available here</a>. Anybody can have a look and audit how it works.
@@ -42,14 +42,14 @@ const items = [
   },
   {
     id: 'can-i-buy-twice',
-    question: `Can I pay for The Tree twice?`,
+    question: `Can I host The Tree twice?`,
     answer: (
       <div>
         <Text block>
-          Yes, it's possible to become The Tree host more than once, but you won't earn more by doing so. You will get a special host NFT instead, only for repeating hosts.
+          No, the same wallet can't host The Tree twice. If you try to pay again to be the host, the smart contract will just reject your transaction.
         </Text>
         <Text block>
-          Remember that the spirit of The Tree is to distribute the wealth, so the coins generated will be donated to a solidary cause. Right now that cause is [name and link here].
+          This is because the spirit of The Tree is to distribute the wealth among the bigger number of hosts possible.
         </Text>
       </div>
     )
@@ -63,7 +63,7 @@ const items = [
           To know the price of The Tree of Wealth you need to connect your wallet and go to the <Link href="/">main page</Link>.
         </Text>
         <Text block>
-          The price for hosting the Tree increases by {getPriceRaise()} MATIC every time it changes host. So the sooner you buy the cheaper it will be.
+          The price for hosting the Tree increases by {getPriceRaise()} ETH every time it changes host. So the sooner you buy the cheaper it will be.
         </Text>
       </div>
     )
@@ -77,7 +77,7 @@ const items = [
           No. When you host The Tree, you will see it in your wallet as any other NFT, but if you try to sell it using NFT marketplaces like <Link href={getOpenSeaURL()}>OpenSea</Link> you will get an error.
         </Text>
         <Text block>
-          The only way of transfering The Tree is by the recipient wallet to pay {getPriceRaise()} MATIC more than what you paid.
+          The only way of transfering The Tree is by the recipient wallet to pay {getPriceRaise()} ETH more than what you paid.
         </Text>
         <Text block>
           When somebody takes The Tree from your wallet, you won't get the coins that were paid. Instead, the amount will be distributed among all the previous hosts, and you only will get your part.

@@ -8,10 +8,28 @@
   font-size: 16px;
   font-weight: bold;
   color: #441122;
+  display: block;
+  text-align: center;
 }
 
 .button:hover {
-  background-color: #ffcceb;
+  background-color: #ffffa1;
+}
+
+.transparent {
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+.transparent:hover {
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.icon {
+  display: inline-block;
+  margin-right: 10px;
 }
 
 .loading {

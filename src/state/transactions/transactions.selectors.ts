@@ -24,17 +24,6 @@ export const getWithdrawResult = stateManager.selector<void, TransactionResult |
   }
 });
 
-export const isSettingSolidaryOwner = stateManager.selector<void, boolean>( store => (
-  store.setSolidaryOwnerTransaction.inProcess
-));
-
-export const geSetSolidaryOwnerResult = stateManager.selector<void, TransactionResult | undefined>( store => {
-  const {result, error} = store.setSolidaryOwnerTransaction;
-  if( result ){
-    return {result, error};
-  }
-});
-
 export type TransactionStatus = 'out' | 'in' | 'withdrawing' | 'hosting';
 export const getTransactionStatus = stateManager.selector<void, TransactionStatus>( store => {
   if( store.buyTransaction.inProcess ) return 'hosting';

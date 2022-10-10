@@ -3,7 +3,7 @@ import { getCurrentChainId, getSigner } from "../wallet/wallet.selectors";
 import contractSpec from './TreeOfWealth.json';
 import {TreeOfWealth} from '../../../types/ethers-contracts';
 import { getContractAddress, isValidNetwork } from "../../utils/networks";
-import { invalidateAvailableToWithdraw, invalidateHost, invalidateHostsCount, invalidateSolidaryValue, invalidatePrice } from "./contract.loaders";
+import { invalidateAvailableToWithdraw, invalidateHost, invalidateHostsCount, invalidatePrice } from "./contract.loaders";
 import { refreshUI } from "../stateManager";
 
 export function getContract(): TreeOfWealth | undefined {
@@ -24,15 +24,8 @@ export function bindContractListeners( chainId: number ){
         console.log('Transfer event received!');
         invalidateHost();
         invalidateAvailableToWithdraw();
-        invalidateSolidaryValue();
         invalidatePrice();
         invalidateHostsCount();
-        refreshUI();
-      });
-
-      contract.on('SolidaryOwnerChange', () => {
-        console.log('Solidary owner event received!');
-        invalidateAvailableToWithdraw();
         refreshUI();
       });
     }

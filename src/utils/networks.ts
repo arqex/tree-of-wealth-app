@@ -12,19 +12,30 @@ export interface NetworkDefinition {
 const networks: {[id: number]: NetworkDefinition} = {
   /*
   137: {
-    name: 'Polygon',
+    name: 'Ethereum',
     chainId: 137,
     type: 'production',
     contractAddress: ""
   },
   */
+
+  5: {
+    name: 'Ethereum Goerli',
+    chainId: 5,
+    type: 'test',
+    contractAddress: "0x2fecA53F5660a4CF78972Fa880257d9B03600989",
+    rpc: 'https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
+    symbol: 'ETH',
+    blockExplorer: 'https://goerli.etherscan.io/',
+    openSeaURL: 'https://testnets.opensea.io/es/collection/the-tree-of-wealth-r4y4fqlbic'
+  },
   80001: {
     name: 'Polygon Mumbai',
     chainId: 80001,
     type: 'test',
     contractAddress: "0x0ae8daf0d0bcc03d630ca46f579a48137f1e1eae",
-    rpc: 'https://rpc-mumbai.matic.today',
-    symbol: 'MATIC',
+    rpc: 'https://rpc-mumbai.maticvigil.com',
+    symbol: 'ETH',
     blockExplorer: 'https://mumbai.polygonscan.com/',
     openSeaURL: 'https://testnets.opensea.io/collection/the-tree-of-wealth-v2'
   },

@@ -64,32 +64,3 @@ export const resetWithdrawResult = stateManager.reducer<void>( (store) => ({
     error: undefined
   }
 }));
-
-
-
-export const setIsSettingSolidaryOwner = stateManager.reducer<boolean>( (store, isWithdrawing) => ({
-  ...store,
-  setSolidaryOwnerTransaction: {
-    inProcess: isWithdrawing,
-    result: undefined,
-    error: undefined
-  }
-}));
-
-export const setSolidaryOwnerResult = stateManager.reducer<TransactionResult>( (store, result) => ({
-  ...store,
-  setSolidaryOwnerTransaction: {
-    inProcess: false,
-    result: result.result,
-    error: result.error
-  }
-}));
-
-export const resetSolidaryOwnerResult = stateManager.reducer<void>( (store) => ({
-  ...store,
-  setSolidaryOwnerTransaction: {
-    inProcess: false,
-    result: undefined,
-    error: undefined
-  }
-}));

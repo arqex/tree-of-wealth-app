@@ -41,12 +41,14 @@ h1, h2, h3, h4, h5 {
 
 ul {
   text-align: start;
+  font-size: 18px;
 }
 
 li {
-  margin-bottom: 4px;
+  margin-bottom: 10px;
 }
 
 li:last-child {
   margin-bottom: 0;
 }
+

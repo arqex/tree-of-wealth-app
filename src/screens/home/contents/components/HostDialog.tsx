@@ -28,7 +28,7 @@ export class HostDialog extends Component<HostDialogProps, HostDialogState> {
         <div className={styles.p}>Current price of hosting The Tree is...</div>
         <div className={styles.p}>
           <span className={styles.amount}>{ethers.utils.formatEther(amount)}</span>
-          <span className={styles.matic}>MATIC</span>
+          <span className={styles.matic}>ETH</span>
         </div>
         <div>
           <Button onClick={ this._onBuyClicked }

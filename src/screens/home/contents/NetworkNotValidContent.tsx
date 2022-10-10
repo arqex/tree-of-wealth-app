@@ -21,7 +21,7 @@ class NetworkNotValidContent extends Component<NetworkNotValidContentProps, Netw
     return (
       <Pod>
         <Text type="h2" block>Your wallet is connected to an unknown network</Text>
-        <Text block>The Tree of Wealth lives in the <b>Polygon</b> network, so please switch the network in your wallet to use the following settings:</Text>
+        <Text block>The Tree of Wealth lives in the <b>Ethereum</b> network, so please switch the network in your wallet to use the following settings:</Text>
         <ul style={{marginBottom: 40}}>
           <li>Network name: <b>{networkDetails.name}</b></li>
           <li>RCP address: <b>{networkDetails.rpc}</b></li>

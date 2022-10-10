@@ -35,7 +35,7 @@ export class WithdrawDialog extends Component<WithdrawDialogProps, WithdrawDialo
         <div className={styles.p}>The Tree has been holding some coins for you...</div>
         <div className={styles.p}>
           <span className={styles.amount}>{ethers.utils.formatEther(amount)}</span>
-          <span className={styles.matic}>MATIC</span>
+          <span className={styles.matic}>ETH</span>
         </div>
         <div>
           <Button onClick={ withdraw }
@@ -55,7 +55,7 @@ export class WithdrawDialog extends Component<WithdrawDialogProps, WithdrawDialo
         <div className={styles.p}>The coins are all yours, handle them wisely.</div>
         <div className={styles.p}>
           <span className={styles.amount}>{ethers.utils.formatEther(this.state.prevAmount)}</span>
-          <span className={styles.matic}>MATIC</span>
+          <span className={styles.matic}>ETH</span>
         </div>
         <div>
             <Button onClick={ () => resetWithdrawResult() }

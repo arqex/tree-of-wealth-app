@@ -19,7 +19,7 @@
 }
 
 .pod {
-  background-color: rgba(248, 201, 127,.1);
+  background-color: rgba(0,0,0,.2);
   padding: 20px;
   border-radius: 10px;
   border: 1px solid rgba(0,0,0,.05);

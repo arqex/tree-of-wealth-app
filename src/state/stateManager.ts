@@ -27,11 +27,6 @@ interface Store {
     result: 'ok' | 'error' | undefined,
     error: RCPError | undefined
   },
-  setSolidaryOwnerTransaction: {
-    inProcess: boolean,
-    result: 'ok' | 'error' | undefined,
-    error: RCPError | undefined
-  },
   nftDetails: {
     [id: string]: NftDetails | NftError
   },
@@ -61,11 +56,6 @@ const store: Store = {
     error: undefined
   },
   withdrawTransaction: {
-    inProcess: false,
-    result: undefined,
-    error: undefined
-  },
-  setSolidaryOwnerTransaction: {
     inProcess: false,
     result: undefined,
     error: undefined

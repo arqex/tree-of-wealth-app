@@ -6,5 +6,5 @@ export function formatAddress( address: string ){
 
 export function formatPrice( price: ethers.BigNumber | undefined ){
   if( !price) return '';
-  return `${ethers.utils.formatEther(price)} MATIC`;
+  return `${ethers.utils.formatEther(price)} ETH`;
 }

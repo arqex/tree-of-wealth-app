@@ -44,7 +44,7 @@ export const HostLoader = stateManager.loader<void, string>({
     let contract = getContract();
     if( !contract ) throw new Error('No contract available');
 
-    contract.functions.ownerOf(1)
+    contract.functions.ownerOf(0)
       .then( stateManager.reducer( (store, result: [string]) => {
         isValidHost = true;
         return {
@@ -58,56 +58,6 @@ export const HostLoader = stateManager.loader<void, string>({
   },
   isValid() {
     return isValidHost;
-  }
-});
-
-export const SolidaryOwnerLoader = stateManager.loader<void, string>({
-  selector(store) {
-    return store.contract.repeatingOwner
-  },
-  load: async function() {
-    let contract = getContract();
-    if( !contract ) throw new Error('No contract available');
-
-    contract.functions.currentSolidaryOwner()
-      .then( stateManager.reducer( (store, result: [string]) => {
-        return {
-          ...store,
-          contract: {
-            ...store.contract,
-            repeatingOwner: result[0]
-          }
-        }
-      }));
-  }
-});
-
-let isValidSolidaryValue = true;
-export function invalidateSolidaryValue() {
-  isValidSolidaryValue = false;
-}
-export const SolidaryValueLoader = stateManager.loader<void, BigNumber>({
-  selector(store) {
-    return store.contract.solidaryValue
-  },
-  load: async function() {
-    let contract = getContract();
-    if( !contract ) throw new Error('No contract available');
-
-    contract.functions.solidaryValue()
-      .then( stateManager.reducer( (store, result: [BigNumber]) => {
-        isValidSolidaryValue = true;
-        return {
-          ...store,
-          contract: {
-            ...store.contract,
-            solidaryValue: result[0]
-          }
-        }
-      }));
-  },
-  isValid() {
-    return isValidSolidaryValue;
   }
 });
 

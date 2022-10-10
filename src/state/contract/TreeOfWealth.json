@@ -1,25 +1,10 @@
 {
   "_format": "hh-sol-artifact-1",
-  "contractName": "TOW2",
-  "sourceName": "contracts/TOW2.sol",
+  "contractName": "TOW3",
+  "sourceName": "contracts/TOW3.sol",
   "abi": [
     {
       "inputs": [
-        {
-          "internalType": "string",
-          "name": "_towMetadata",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "_hostPreText1",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "_hostPreText2",
-          "type": "string"
-        },
         {
           "internalType": "uint256",
           "name": "_priceRaise",
@@ -77,38 +62,6 @@
         }
       ],
       "name": "ApprovalForAll",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "previousOwner",
-          "type": "address"
-        },
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "newOwner",
-          "type": "address"
-        }
-      ],
-      "name": "OwnershipTransferred",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "address",
-          "name": "newOwner",
-          "type": "address"
-        }
-      ],
-      "name": "SolidaryOwnerChange",
       "type": "event"
     },
     {
@@ -219,8 +172,14 @@
       "type": "function"
     },
     {
-      "inputs": [],
-      "name": "currentSolidaryOwner",
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getApproved",
       "outputs": [
         {
           "internalType": "address",
@@ -239,12 +198,12 @@
           "type": "uint256"
         }
       ],
-      "name": "getApproved",
+      "name": "getTokenType",
       "outputs": [
         {
-          "internalType": "address",
+          "internalType": "enum TOW3.TokenType",
           "name": "",
-          "type": "address"
+          "type": "uint8"
         }
       ],
       "stateMutability": "view",
@@ -315,38 +274,12 @@
     },
     {
       "inputs": [],
-      "name": "isRepeatingHost",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
       "name": "name",
       "outputs": [
         {
           "internalType": "string",
           "name": "",
           "type": "string"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "owner",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
         }
       ],
       "stateMutability": "view",
@@ -373,40 +306,7 @@
     },
     {
       "inputs": [],
-      "name": "previousHostCount",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
       "name": "priceRaise",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "renounceOwnership",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "repeatingHostCount",
       "outputs": [
         {
           "internalType": "uint256",
@@ -489,81 +389,6 @@
     {
       "inputs": [
         {
-          "internalType": "address",
-          "name": "owner",
-          "type": "address"
-        },
-        {
-          "internalType": "string",
-          "name": "_name",
-          "type": "string"
-        }
-      ],
-      "name": "setCurrentSolidaryOwner",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_solidaryDaoAddress",
-          "type": "address"
-        }
-      ],
-      "name": "setSolidaryDao",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "owner",
-          "type": "address"
-        },
-        {
-          "internalType": "string",
-          "name": "nextName",
-          "type": "string"
-        }
-      ],
-      "name": "setSolidaryOwnerName",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "solidaryDaoAddress",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "solidaryValue",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
           "internalType": "bytes4",
           "name": "interfaceId",
           "type": "bytes4"
@@ -636,26 +461,11 @@
       "type": "function"
     },
     {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "newOwner",
-          "type": "address"
-        }
-      ],
-      "name": "transferOwnership",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
       "inputs": [],
       "name": "withdraw",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     }
-  ],
-  "linkReferences": {},
-  "deployedLinkReferences": {}
+  ]
 }

@@ -17,16 +17,20 @@ class FaqQuestionList extends Component<FaqQuestionListProps, FaqQuestionListSta
   render() { 
     return (
       <div className={styles.questionList}>
-        { faqItems.map( this._renderQuestion ) }
+        <ul>
+          { faqItems.map( this._renderQuestion ) }
+        </ul>
       </div>
     );
   }
 
   _renderQuestion = (item: FaqItem ) => {
     return (
-      <Link className={styles.questionItem} key={item.id} href={`#${item.id}`} onClick={this.props.onSelected}>
-        <Text>{item.question}</Text>
-      </Link>
+      <li>
+        <Link className={styles.questionItem} key={item.id} href={`#${item.id}`} onClick={this.props.onSelected}>
+          <Text>{item.question}</Text>
+        </Link>
+      </li>
     );
   }
 }

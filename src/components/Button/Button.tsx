@@ -1,4 +1,6 @@
 import { ButtonHTMLAttributes, Component } from "react";
+import { mergeClasses } from "../../utils/mergeClasses";
+import Icom from "../Icon/Icon";
 import Spinner from "../Spinner/Spinner";
 import styles from './Button.module.css';
 
@@ -6,7 +8,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   width?: number,
   loading?: boolean,
   loadingText?: string,
-  href?: string
+  href?: string,
+  transparent?: boolean,
+  icon?: string
 }
  
 interface ButtonState {
@@ -15,11 +19,13 @@ interface ButtonState {
  
 class Button extends Component<ButtonProps, ButtonState> {
   render() { 
-    const {children, loading, href, ...props} = this.props;
+    const {children, loading, href, icon, transparent, ...props} = this.props;
     const content = loading ?
       this.renderLoading() :
       this.props.children
     ;
+
+    console.log('Icon', icon);
 
     if( href ){
       return(
@@ -29,17 +35,24 @@ class Button extends Component<ButtonProps, ButtonState> {
           disabled={loading}
           href={href}
           {...props}>
-          { content }
+            { icon && <Icom name={icon} />}
+            { content }
         </a>
 
       )
     }
 
+    const classes = mergeClasses(
+      styles.button,
+      transparent && styles.transparent,
+      icon && styles.withIcon
+    )
 
     return (
-      <button className={styles.button}
+      <button className={classes}
         style={{width: this.props.width}}
         disabled={loading} {...props}>
+        { icon && <span className={styles.icon}><Icom name={icon} /></span>}
         { content }
       </button>
     );

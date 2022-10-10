@@ -8,11 +8,8 @@ import { AvailableToWithdraw } from './info/AvailableToWithdraw';
 import { CurrentHost } from './info/CurrentHost';
 import { CurrentPrice } from './info/CurrentPrice';
 import { HasBeenHost } from './info/HasBeenHost';
-import { SolidaryOwner } from './info/SolidaryOwner';
-import { SolidaryValue } from './info/SolidaryValue';
 import { HostsCount } from './info/HostsCount';
 import { ContractOwner } from './info/ContractOwner';
-import { SetSolidaryOwnerButton } from './controls/SetSolidaryOwnerButton';
 
 interface ContractControlsProps {
   
@@ -43,15 +40,12 @@ class ContractControls extends React.Component<ContractControlsProps, ContractCo
         <ContractOwner />
         <CurrentPrice />
         <CurrentHost />
-        <SolidaryOwner />
-        <SolidaryValue />
         <HostsCount />
         <div>----</div>
         <HasBeenHost />
         <AvailableToWithdraw />
         <HostButton />
         <WithdrawButton />
-        <SetSolidaryOwnerButton />
       </div>
     );
   }
