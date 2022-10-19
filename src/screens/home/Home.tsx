@@ -6,7 +6,7 @@ import { HasBeenHostLoader, HostLoader } from "../../state/contract/contract.loa
 import NoConnectedContent from "./contents/NoConnectedContent";
 import FormerHostContent from "./contents/FormerHostContent";
 import CurrentHostContent from "./contents/CurrentHostContent";
-import PotentialNewBuyerContent from "./contents/PotentialNewBuyerContent";
+import PotentialNewHostContent from "./contents/PotentialNewHostContent";
 import Spinner from "../../components/Spinner/Spinner";
 import HomeLayout from "./HomeLayout";
 import TransactionLayer from "./TransactionLayer";
@@ -98,7 +98,7 @@ class HomeScreen extends Component<HomeScreenProps, HomeScreenState> {
       return <FormerHostContent />
     }
 
-    return <PotentialNewBuyerContent />;
+    return <PotentialNewHostContent />;
   }
 
   renderLoading() {

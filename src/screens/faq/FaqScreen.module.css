@@ -122,11 +122,11 @@
 
 .bg_layer2 {
   position: absolute;
-  top: 80px; left: 0; right: 0; bottom: 0;
+  top: 80px; left: 0; right: 0;
+  height: 121px;
   background-color: #882155;
   border-top-left-radius: 40%;
   border-top-right-radius: 60%;
-  transform: scaleX(4);
 }
 
 .bg_layer3 {

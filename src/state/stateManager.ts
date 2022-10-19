@@ -17,7 +17,7 @@ interface Store {
     priceRaise: number
   },
   hosts: {[address: string]: Owner},
-  buyTransaction: {
+  hostTransaction: {
     inProcess: boolean,
     result: 'ok' | 'error' | undefined,
     error: RCPError | undefined
@@ -47,10 +47,10 @@ const store: Store = {
     repeatingOwner: undefined,
     solidaryValue: undefined,
     hostsCount: undefined,
-    priceRaise: 0.001
+    priceRaise: 0.0001
   },
   hosts: {},
-  buyTransaction: {
+  hostTransaction: {
     inProcess: false,
     result: undefined,
     error: undefined

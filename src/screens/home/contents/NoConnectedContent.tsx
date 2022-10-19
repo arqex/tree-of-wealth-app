@@ -25,11 +25,13 @@ class NoConnectedContent extends Component<NoConnectedContentProps, NoConnectedC
     return (
       <div>
         <Text type="h2" margin="l">Will grant wealth to anyone who has ever hosted it</Text>
-        <Button width={160} href="#about" onClick={ scrollToAnchor }>How does it work?</Button>
-        <span style={{width: 10, display: 'inline-block'}} />
-        <Button width={160} onClick={ this._onConnectWallet }>
-          Connect wallet
-        </Button>
+        <div style={{display: 'flex', justifyContent: 'center'}}>
+          <Button width={160} href="#about" onClick={ scrollToAnchor }>How does it work?</Button>
+          <span style={{width: 10, display: 'inline-block'}} />
+          <Button width={160} onClick={ this._onConnectWallet }>
+            Connect wallet
+          </Button>
+        </div>
         <Modal isOpen={this.state.isWalletModalOpen}
           onRequestClose={this._closeModal } maxWidth="500px">
             <ConnectWalletModal />

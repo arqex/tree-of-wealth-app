@@ -1,10 +1,11 @@
 import { Component } from "react";
-import BuyToast from "../../components/BuyToast/BuyToast";
+import HostToast from "../../components/HostToast/HostToast";
 import ConnectButton from "../../components/ConnectButton/ConnectButton";
 import ContractControls from "../../components/ContractControls/ContractControls";
-import { resetBuyResult, setBuyResult, setIsBuying } from "../../state/transactions/transactions.reducers";
-import { getBuyResult, isBuying } from "../../state/transactions/transactions.selectors";
+import { resetHostResult, setHostResult, setBecomingHost } from "../../state/transactions/transactions.reducers";
+import { getHostResult, isBecomingHost } from "../../state/transactions/transactions.selectors";
 import { NetworkLoader } from "../../state/wallet/wallet.loaders";
+import { getItemMeta } from "../../state/contract/contract.actions";
 
 interface SettingsScreenProps {
   
@@ -19,7 +20,7 @@ class SettingsScreen extends Component<SettingsScreenProps, SettingsScreenState>
     const result = NetworkLoader();
     return (
       <div className="App">
-        <BuyToast inProcess={ isBuying() } result={ getBuyResult() } />
+        <HostToast inProcess={ isBecomingHost() } result={ getHostResult() } />
         <header className="App-header">
           The tree of wealth {JSON.stringify(result.data)}
         </header>
@@ -37,23 +38,24 @@ class SettingsScreen extends Component<SettingsScreenProps, SettingsScreenState>
         <button onClick={ this._setResultOk }>Set result ok</button>
         <button onClick={ this._setResultError }>Set result error</button>
         <button onClick={ this._resetResult }>Reset result</button>
+        <button onClick={ () => getItemMeta(1) }>Get meta</button>
       </div>
     );
   }
   _open = () => {
-    setIsBuying(true);
+    setBecomingHost(true);
   }
 
   _setResultOk = () => {
-    setBuyResult({result: 'ok'});
+    setHostResult({result: 'ok'});
   }
 
   _setResultError = () => {
-    setBuyResult({result: 'error', error: {code: 0, message: 'Somethign went wrong'}});
+    setHostResult({result: 'error', error: {code: 0, message: 'Somethign went wrong'}});
   }
 
   _resetResult = () => {
-    resetBuyResult();
+    resetHostResult();
   }
 }
  

@@ -1,8 +1,8 @@
 import { BigNumber, BigNumberish, ethers } from 'ethers';
 import { Component } from 'react';
 import Button from '../../../../components/Button/Button';
-import { buy } from '../../../../state/transactions/transactions.actions';
-import { isBuying } from '../../../../state/transactions/transactions.selectors';
+import { host } from '../../../../state/transactions/transactions.actions';
+import { isBecomingHost } from '../../../../state/transactions/transactions.selectors';
 import styles from '../homeContents.module.css';
 
 interface HostDialogProps {
@@ -33,7 +33,7 @@ export class HostDialog extends Component<HostDialogProps, HostDialogState> {
         <div>
           <Button onClick={ this._onBuyClicked }
             loadingText="Becoming host"
-            loading={ isBuying() }
+            loading={ isBecomingHost() }
             width={180}>
               Become the host
           </Button>
@@ -43,7 +43,7 @@ export class HostDialog extends Component<HostDialogProps, HostDialogState> {
   }
 
   _onBuyClicked = () => {
-    buy( this.props.amount );
+    host( this.props.amount );
     if( this.props.onButtonClicked ){
       this.props.onButtonClicked();
     }

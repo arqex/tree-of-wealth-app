@@ -31,3 +31,9 @@ export function bindContractListeners( chainId: number ){
     }
   }
 }
+
+export function getItemMeta(id: number) {
+  getContract()?.functions.tokenURI(id).then( response => {
+    console.log( response );
+  })
+}

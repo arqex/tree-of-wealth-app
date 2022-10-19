@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { HostLoader, PriceLoader } from "../../../state/contract/contract.loaders";
-import { buy } from "../../../state/transactions/transactions.actions";
+import { host } from "../../../state/transactions/transactions.actions";
 import { formatPrice } from "../../../utils/format";
 import ConfirmModal from "../../ConfirmModal/ConfirmModal";
 interface HostButtonProps {
@@ -9,17 +9,17 @@ interface HostButtonProps {
  
 interface HostButtonState {
   isModalOpen: boolean,
-  isBuying: boolean
+  isBecomingHost: boolean
 }
  
 export class HostButton extends Component<HostButtonProps, HostButtonState> {
   state = {
     isModalOpen: false,
-    isBuying: false
+    isBecomingHost: false
   };
 
   render() { 
-    const {isModalOpen, isBuying} = this.state;
+    const {isModalOpen, isBecomingHost} = this.state;
     const {data: owner} = HostLoader();
     const {data: price} = PriceLoader();
 
@@ -28,7 +28,7 @@ export class HostButton extends Component<HostButtonProps, HostButtonState> {
         <button
           disabled={owner === undefined}
           onClick={ this._openModal }>
-            { isBuying ? 'Transferring The Tree...' : 'Become a host'}
+            { isBecomingHost ? 'Transferring The Tree...' : 'Become a host'}
         </button>
         <ConfirmModal isOpen={isModalOpen}
           onRequestClose={ this._closeModal }
@@ -48,19 +48,19 @@ export class HostButton extends Component<HostButtonProps, HostButtonState> {
   }
 
   _openModal = () => {
-    this.setState({isBuying: true});
+    this.setState({isBecomingHost: true});
     this.setState({isModalOpen: true});
   }
 
   _closeModal = () => {
-    this.setState({isBuying: false});
+    this.setState({isBecomingHost: false});
     this.setState({isModalOpen: false});
   }
 
   _pay = () => {
     const {data: price} = PriceLoader();
     if( price ){
-      buy(price);
+      host(price);
     }
   }
 }

@@ -1,18 +1,18 @@
 import { Component } from "react";
-import { resetBuyResult, TransactionResult } from "../../state/transactions/transactions.reducers";
+import { resetHostResult, TransactionResult } from "../../state/transactions/transactions.reducers";
 import { Toast } from "../Toast/Toast";
 
-interface BuyToastProps {
+interface HostToastProps {
   inProcess: boolean,
   result?: TransactionResult
 }
  
-interface BuyToastState {
+interface HostToastState {
   isShowing: boolean,
-  cache: BuyToastProps
+  cache: HostToastProps
 }
  
-class BuyToast extends Component<BuyToastProps, BuyToastState> {
+class HostToast extends Component<HostToastProps, HostToastState> {
   state = {
     isShowing: false,
     cache: {
@@ -43,7 +43,7 @@ class BuyToast extends Component<BuyToastProps, BuyToastState> {
     }
   }
 
-  getProps(): BuyToastProps {
+  getProps(): HostToastProps {
     if( this.state.isShowing ){
       return this.props;
     }
@@ -51,10 +51,10 @@ class BuyToast extends Component<BuyToastProps, BuyToastState> {
   }
 
   _discard = () => {
-    resetBuyResult();
+    resetHostResult();
   }
 
-  componentDidUpdate({inProcess, result}: BuyToastProps){
+  componentDidUpdate({inProcess, result}: HostToastProps){
     if( !this.props.inProcess && !this.props.result ){
       if( inProcess || result ){
         this.setState({
@@ -73,4 +73,4 @@ class BuyToast extends Component<BuyToastProps, BuyToastState> {
   }
 }
  
-export default BuyToast;
+export default HostToast;

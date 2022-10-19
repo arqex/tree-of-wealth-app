@@ -8,15 +8,15 @@ import { HostDialog } from "./components/HostDialog";
 import { LearnMoreLink } from "./components/LearnMoreLinkt";
 import styles from './homeContents.module.css';
 
-interface PotentialNewBuyerContentProps {
+interface PotentialNewHostContentProps {
   
 }
  
-interface PotentialNewBuyerContentState {
+interface PotentialNewHostContentState {
   
 }
  
-class PotentialNewBuyerContent extends Component<PotentialNewBuyerContentProps, PotentialNewBuyerContentState> {
+class PotentialNewHostContent extends Component<PotentialNewHostContentProps, PotentialNewHostContentState> {
   state = {
     isWalletModalOpen: false
   }
@@ -37,12 +37,20 @@ class PotentialNewBuyerContent extends Component<PotentialNewBuyerContentProps, 
       return <Spinner />;
     }
 
-    if( !price || error ){
+    if( error ){
       return (
         <div className={`${styles.section} ${styles.pod}`}>
           There was an error loading the price of The Tree. <a href="#1">Retry to load</a>
         </div>
       );
+    }
+    
+    if(!price) {
+      return (
+        <div style={{margin: '20px auto'}}>
+          <Spinner />
+        </div>
+      )
     }
 
     return (
@@ -53,4 +61,4 @@ class PotentialNewBuyerContent extends Component<PotentialNewBuyerContentProps, 
   }
 }
  
-export default PotentialNewBuyerContent;
+export default PotentialNewHostContent;

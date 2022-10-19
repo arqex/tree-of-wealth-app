@@ -4,9 +4,10 @@ import { ErrorMessage } from "../../components/ErrorMessage/ErrorMesage";
 import Pod from "../../components/Pod/Pod";
 import Spinner from "../../components/Spinner/Spinner";
 import { Text } from "../../components/Text/Text";
-import { resetBuyResult, resetWithdrawResult, TransactionResult } from "../../state/transactions/transactions.reducers";
-import { getBuyResult, getWithdrawResult } from "../../state/transactions/transactions.selectors";
+import { resetHostResult, resetWithdrawResult, TransactionResult } from "../../state/transactions/transactions.reducers";
+import { getHostResult, getWithdrawResult } from "../../state/transactions/transactions.selectors";
 import { mergeClasses } from "../../utils/mergeClasses";
+import HostSocialLinks from "./contents/components/HostSocialLinks";
 import styles from './TransactionLayer.module.css';
 
 type TransactionState = "none" | "withdrawing" | "hosting";
@@ -55,7 +56,7 @@ class TransactionLayer extends Component<TransactionLayerProps, TransactionLayer
         return this.renderWithdrawing();
       }
       if( lastTransaction === 'hosting' ){
-        const result = getBuyResult();
+        const result = getHostResult();
         if( result && result.error?.code !== 4001 ){
           return this.renderHostResult();
         }
@@ -73,7 +74,7 @@ class TransactionLayer extends Component<TransactionLayerProps, TransactionLayer
       return (
         <div className={styles.transactionMessage}>
           <Pod>
-            <Text type="h2" block>Thanks to The Tree, your coins should be in your wallet.</Text>
+            <Text type="h2" block>Thanks to The Tree, your coins are now in your wallet.</Text>
             <Text block>Why don't you commemorate this awesome event by sharing it in your social networks? You will help The Tree to have more hosts and the community will thank you for doing so.</Text>
             <div>
               <Button width={160} onClick={ this._close }>Close</Button>
@@ -104,7 +105,7 @@ class TransactionLayer extends Component<TransactionLayerProps, TransactionLayer
   }
 
   renderHostResult() {
-    const result = getBuyResult();
+    const result = getHostResult();
 
     if( !result ) return;
 
@@ -114,6 +115,7 @@ class TransactionLayer extends Component<TransactionLayerProps, TransactionLayer
           <Pod>
             <Text type="h2" block>Your are now the new host of The Tree.</Text>
             <Text block>The Tree comes with the great responsibility of spreading the word. Maybe the next host is waiting among your friends, share it in your favorite social network.</Text>
+            <HostSocialLinks />
             <div>
               <Button width={160} onClick={ this._close }>Close</Button>
             </div>
@@ -167,7 +169,7 @@ class TransactionLayer extends Component<TransactionLayerProps, TransactionLayer
       setTimeout( () => this.setState({inTransaction: true}));
     }
 
-    const result = getBuyResult() || getWithdrawResult();
+    const result = getHostResult() || getWithdrawResult();
     if( result?.error?.code === 4001 ){
       this._close();
     }
@@ -191,7 +193,7 @@ class TransactionLayer extends Component<TransactionLayerProps, TransactionLayer
       });
       setTimeout( () => {
         resetWithdrawResult();
-        resetBuyResult();
+        resetHostResult();
         this.setState({showingTransactionMessage: false});
         this.closed = false;
       }, 300 );

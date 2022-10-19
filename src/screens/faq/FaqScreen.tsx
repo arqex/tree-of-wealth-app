@@ -24,9 +24,8 @@ export default class FaqScreen extends Component<FaqScreenProps, FaqScreenState>
   render() { 
     return (
       <div className={styles.faqScreen}>
-
-        <div className={styles.bg_layer1} />
-        <div className={styles.bg_layer2} />
+          <div className={styles.bg_layer1} />
+          <div className={styles.bg_layer2} />
           <div className={styles.bg_layer3} />
         <header className={styles.contentHeader}>
           <div className={styles.contentHeaderContent}>

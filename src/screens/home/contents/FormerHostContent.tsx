@@ -6,6 +6,7 @@ import { Text } from "../../../components/Text/Text";
 import { AvailableToWithdrawLoader, PriceLoader } from "../../../state/contract/contract.loaders";
 import { getWithdrawResult, isWithdrawing } from "../../../state/transactions/transactions.selectors";
 import { getConnectedAddress } from "../../../state/wallet/wallet.selectors";
+import { mergeClasses } from "../../../utils/mergeClasses";
 import { HostDialog } from "./components/HostDialog";
 import { LearnMoreLink } from "./components/LearnMoreLinkt";
 import { WithdrawDialog } from "./components/WithdrawDialog";
@@ -45,7 +46,7 @@ class FormerHostContent extends Component<FormerHostContentProps, FormerHostCont
 
     return (
       <Text block>
-        Current price for hosting The Tree is {formatted} ETH. <a href="#1" onClick={ this._openModal }>Host it again</a>.
+        Current price for hosting The Tree is {formatted} ETH.
       </Text>
     );
   }
@@ -80,9 +81,11 @@ class FormerHostContent extends Component<FormerHostContentProps, FormerHostCont
 
     return (
       <div className={styles.section}>
-        <Text block>
-          There hasn't been any new host since the last time you withdraw from The Tree.
-        </Text>
+        <div className={mergeClasses(styles.pod, styles.section)}>
+          <Text>
+            There hasn't been any new host since the last time you withdraw from The Tree.
+          </Text>
+        </div>
         <Text block>
           If you'd like to help The Tree to have more hosts you can share it with the world on your favorite social network
         </Text>

@@ -1,9 +1,9 @@
 import { stateManager } from "../stateManager";
 
-export const setIsBuying = stateManager.reducer<boolean>( (store, isBuying) => ({
+export const setBecomingHost = stateManager.reducer<boolean>( (store, isBecomingHost) => ({
   ...store,
-  buyTransaction: {
-    inProcess: isBuying,
+  hostTransaction: {
+    inProcess: isBecomingHost,
     result: undefined,
     error: undefined
   }
@@ -18,19 +18,19 @@ export interface TransactionResult {
   result: 'ok' | 'error',
   error?: RCPError
 }
-export const setBuyResult = stateManager.reducer<TransactionResult>( (store, result) => ({
+export const setHostResult = stateManager.reducer<TransactionResult>( (store, result) => ({
   ...store,
-  buyTransaction: {
+  hostTransaction: {
     inProcess: false,
     result: result.result,
     error: result.error
   }
 }));
 
-export const resetBuyResult = stateManager.reducer<void>( (store) => {
+export const resetHostResult = stateManager.reducer<void>( (store) => {
   return {
     ...store,
-    buyTransaction: {
+    hostTransaction: {
       inProcess: false,
       result: undefined,
       error: undefined

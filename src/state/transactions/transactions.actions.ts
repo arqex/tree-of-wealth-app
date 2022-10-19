@@ -1,24 +1,24 @@
 import { ethers } from "ethers";
 import { getContract } from "../contract/contract.actions";
 import { invalidateAvailableToWithdraw } from "../contract/contract.loaders";
-import { setBuyResult, setIsBuying, setIsWithdrawing, setWithdrawResult } from "./transactions.reducers";
-import { isBuying, isWithdrawing } from "./transactions.selectors";
+import { setHostResult, setBecomingHost, setIsWithdrawing, setWithdrawResult } from "./transactions.reducers";
+import { isBecomingHost, isWithdrawing } from "./transactions.selectors";
 
-export async function buy( price: ethers.BigNumber ){
+export async function host( price: ethers.BigNumber ){
   const contract = getContract();
-  if( !contract ) throw new Error('No contract to buy The Tree');
+  if( !contract ) throw new Error('No contract to host The Tree');
 
-  if( isBuying() ) return;
+  if( isBecomingHost() ) return;
 
-  setIsBuying(true);
+  setBecomingHost(true);
   try {
     let tx = await contract.functions.host({value: price});
     await tx.wait();
-    setBuyResult({ result: 'ok' });
+    setHostResult({ result: 'ok' });
   }
   catch( err ){
     console.error( err );
-    setBuyResult({
+    setHostResult({
       result: 'error',
       // @ts-ignore
       error: err?.data || (err.code && err) || {code: -1, message: 'Unknown error'}
@@ -28,7 +28,7 @@ export async function buy( price: ethers.BigNumber ){
 
 export async function withdraw(){
   const contract = getContract();
-  if( !contract ) throw new Error('No contract to buy The Tree');
+  if( !contract ) throw new Error('No contract to withdra');
 
   if( isWithdrawing() ) return;
 

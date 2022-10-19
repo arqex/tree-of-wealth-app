@@ -2,12 +2,12 @@ import { isValidNetwork } from "../../utils/networks";
 import { stateManager } from "../stateManager"
 import { TransactionResult } from "./transactions.reducers";
 
-export const isBuying = stateManager.selector<void, boolean>( store => (
-  store.buyTransaction.inProcess
+export const isBecomingHost = stateManager.selector<void, boolean>( store => (
+  store.hostTransaction.inProcess
 ));
 
-export const getBuyResult = stateManager.selector<void, TransactionResult | undefined>( store => {
-  const {result, error} = store.buyTransaction;
+export const getHostResult = stateManager.selector<void, TransactionResult | undefined>( store => {
+  const {result, error} = store.hostTransaction;
   if( result ){
     return {result, error};
   }
@@ -26,7 +26,7 @@ export const getWithdrawResult = stateManager.selector<void, TransactionResult |
 
 export type TransactionStatus = 'out' | 'in' | 'withdrawing' | 'hosting';
 export const getTransactionStatus = stateManager.selector<void, TransactionStatus>( store => {
-  if( store.buyTransaction.inProcess ) return 'hosting';
+  if( store.hostTransaction.inProcess ) return 'hosting';
   if( store.withdrawTransaction.inProcess ) return 'withdrawing';
   if( store.connectedSignerAddress && isValidNetwork(store.connectedNetwork?.chainId || 0) ){
     return 'in';

@@ -25,8 +25,6 @@ class Button extends Component<ButtonProps, ButtonState> {
       this.props.children
     ;
 
-    console.log('Icon', icon);
-
     if( href ){
       return(
         // @ts-ignore
