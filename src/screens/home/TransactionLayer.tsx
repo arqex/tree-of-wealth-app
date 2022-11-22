@@ -113,7 +113,7 @@ class TransactionLayer extends Component<TransactionLayerProps, TransactionLayer
       return (
         <div className={styles.transactionMessage}>
           <Pod>
-            <Text type="h2" block>Your are now the new host of The Tree.</Text>
+            <Text type="h2" block>You are now the new host of The Tree.</Text>
             <Text block>The Tree comes with the great responsibility of spreading the word. Maybe the next host is waiting among your friends, share it in your favorite social network.</Text>
             <HostSocialLinks />
             <div>

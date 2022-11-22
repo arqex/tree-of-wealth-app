@@ -9,6 +9,7 @@ import { getConnectedAddress } from "../../../state/wallet/wallet.selectors";
 import { mergeClasses } from "../../../utils/mergeClasses";
 import { HostDialog } from "./components/HostDialog";
 import { LearnMoreLink } from "./components/LearnMoreLinkt";
+import ShareSocialLinks from "./components/ShareSocialLinks";
 import { WithdrawDialog } from "./components/WithdrawDialog";
 import styles from './homeContents.module.css';
 
@@ -27,8 +28,8 @@ class FormerHostContent extends Component<FormerHostContentProps, FormerHostCont
 
   render() {
     return (
-      <div>
-        <Text type="h2" margin="l">Welcome dear former host, it's always nice to see you again.</Text>
+      <div style={{marginTop: 30}}>
+        <Text type="h2" margin="m">Welcome dear former host, it's always nice to see you again.</Text>
         { this.renderPrice() }
         { this.renderWithdraw() }
         <LearnMoreLink />
@@ -46,7 +47,7 @@ class FormerHostContent extends Component<FormerHostContentProps, FormerHostCont
 
     return (
       <Text block>
-        Current price for hosting The Tree is {formatted} ETH.
+        Current price for hosting The Tree is <b>{formatted} ETH</b>.
       </Text>
     );
   }
@@ -89,9 +90,7 @@ class FormerHostContent extends Component<FormerHostContentProps, FormerHostCont
         <Text block>
           If you'd like to help The Tree to have more hosts you can share it with the world on your favorite social network
         </Text>
-        <Text block>
-          <a href="#1">Twitter</a> - <a href="#1">Facebook</a> - <a href="#1">Instagram</a> - <a href="#1">TikTok</a>
-        </Text>
+        <ShareSocialLinks />
       </div>
     );
   }

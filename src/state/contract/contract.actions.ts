@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { getCurrentChainId, getSigner } from "../wallet/wallet.selectors";
+import { getValidChainId, getSigner } from "../wallet/wallet.selectors";
 import contractSpec from './TreeOfWealth.json';
 import {TreeOfWealth} from '../../../types/ethers-contracts';
 import { getContractAddress, isValidNetwork } from "../../utils/networks";
@@ -10,7 +10,7 @@ export function getContract(): TreeOfWealth | undefined {
   let signer = getSigner();
   if( !signer ) return;
 
-  const chainId = getCurrentChainId();
+  const chainId = getValidChainId();
   const address = getContractAddress(chainId);
 
   return new ethers.Contract(address, contractSpec.abi, signer) as TreeOfWealth;

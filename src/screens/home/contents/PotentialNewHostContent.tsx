@@ -23,8 +23,8 @@ class PotentialNewHostContent extends Component<PotentialNewHostContentProps, Po
 
   render() {
     return (
-      <div>
-        <Text type="h2" margin="l">Welcome {formatAddress(getConnectedAddress())}, The Tree sees great potential in you.</Text>
+      <div style={{marginTop: 20}}>
+        <Text type="h2" margin="m">Welcome {formatAddress(getConnectedAddress())}, The Tree sees great potential in you.</Text>
         { this.renderPrice() }
         <LearnMoreLink />
       </div>

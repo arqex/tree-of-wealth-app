@@ -114,11 +114,9 @@
   width: 10px;
 }
 
-.aboutSection {
-}
-
 .introContent {
-  max-width: 620px;
+  max-width: 640px;
+  padding: 0 20px;
 }
 
 .titleLogo {

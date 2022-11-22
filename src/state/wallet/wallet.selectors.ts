@@ -35,7 +35,7 @@ export const getConnectedAddress = stateManager.selector<void,string>( store => 
   return store.connectedSignerAddress;
 });
 
-export const getCurrentChainId = stateManager.selector<void,number>( store => {
+export const getValidChainId = stateManager.selector<void,number>( store => {
   const {connectedNetwork} = store;
   if( !connectedNetwork ){
     throw new Error('No connected network');
