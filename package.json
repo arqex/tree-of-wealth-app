@@ -35,7 +35,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "abi": "typechain --target ethers-v5 './src/state/contract/TreeOfWealth.json'"
+    "abi": "typechain --target ethers-v5 './src/state/contract/TreeOfWealth.json'",
+    "deploy": "arkb deploy build --bundle --autoconfirm -w ../arweave.json"
   },
   "eslintConfig": {
     "extends": [
