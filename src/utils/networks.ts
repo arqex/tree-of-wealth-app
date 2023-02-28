@@ -23,12 +23,12 @@ const networks: {[id: number]: NetworkDefinition} = {
     name: 'Ethereum',
     chainId: 1,
     type: 'production',
-    contractAddress: '0x1E7407b5f0c3ec55cFEEb0B19Dfb006e32F8EBB0',
+    contractAddress: '0x27E1F5CcC4F184A2Ca55B12353c06dA9e1803621',
     rpc: 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
     symbol: 'ETH',
     blockExplorer: 'https://etherscan.io/',
-    openSeaURL: 'https://opensea.io/collection/the-tree-of-wealth-v3',
-    tokenBaseURL: 'https://opensea.io/assets/ethereum/0x1e7407b5f0c3ec55cfeeb0b19dfb006e32f8ebb0'
+    openSeaURL: 'https://opensea.io/collection/treeofwealth',
+    tokenBaseURL: 'https://opensea.io/assets/ethereum/0x27E1F5CcC4F184A2Ca55B12353c06dA9e1803621'
   },
 
   5: {
@@ -58,7 +58,7 @@ const networks: {[id: number]: NetworkDefinition} = {
     name: "Sepolia Testnet",
     chainId: 11155111,
     type: 'test',
-    contractAddress: '0x3f4ed1b8309E578f7b8D9c0C546298f1F5C38b88',
+    contractAddress: '0xFd9D2ef4235F70a7890ab39c92B504184e45643f',
     rpc: 'https://rpc.sepolia.dev',
     symbol: 'ETH',
     blockExplorer: 'https://sepolia.etherscan.io/',
@@ -96,6 +96,7 @@ export function getTheTreeOpenSeaURL() {
 }
 
 export function getValidChainId(){
+
   if( window.location.host.includes('localhost') ){
     return 11155111;
   }

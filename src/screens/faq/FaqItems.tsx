@@ -118,10 +118,16 @@ const items = [
     answer: (
       <div>
         <Text block>
-          This is a non-commercial project that has been created as an experiment and published on the Ethereum network. <Link href={ getContractURL() }>The smart contract</Link> is the only one that is taking care of keeping The Tree working as it is once it's been published.
+          This is a non-commercial project that has been created as an experiment and published on the Ethereum network. The Tree functionality should be availabile as long as the Ethereum network is available, but the author has no responsibility over keeping that functionality up and running.
         </Text>
         <Text block>
-          The smart contract is open-source and anyone can audit exactly how it works. Hosting The Tree implies that you understand what the smart contract does, and you accept any transaction or lack of transaction made by it.
+          The smart contract is what defines the exact behavior of The Tree and it might differ from what is described here or in any other media. The smart contract is open-source and anyone can audit exactly how it works.
+        </Text>
+        <Text block>
+          Hosting The Tree implies that you understand what the smart contract does, and you accept any transaction or lack of transaction made by it.
+        </Text>
+        <Text block>
+           <Link href={ getContractURL() }>The source code of the smart contract is available here</Link>.
         </Text>
       </div>
     )
@@ -134,7 +140,7 @@ const items = [
         <Text block>
           This site is just an interface to make simpler the usage of the smart contract of The Tree of Wealth. This interface is available in the following URLs:
           <ul>
-            <li>https://treeofwealth.nft</li>
+            <li><Link href="https://treeofwealth.deno.dev/">https://treeofwealth.deno.dev/</Link></li>
           </ul>
         </Text>
         <Text block>

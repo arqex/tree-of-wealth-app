@@ -52,3 +52,7 @@ li:last-child {
   margin-bottom: 0;
 }
 
+.web3modal-modal-card {
+  max-width: 400px !important;
+
+}

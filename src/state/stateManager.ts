@@ -47,7 +47,7 @@ const store: Store = {
     repeatingOwner: undefined,
     solidaryValue: undefined,
     hostsCount: undefined,
-    priceRaise: 0.0001
+    priceRaise: 0.001
   },
   hosts: {},
   hostTransaction: {
