@@ -2,7 +2,7 @@ import { Component } from "react";
 import Link from "../../components/Link/Link";
 import { Text } from "../../components/Text/Text";
 import { getPriceRaise } from "../../state/transactions/transactions.selectors";
-import { getOpenSeaURL, getTheTreeOpenSeaURL } from "../../utils/networks";
+import { getContractURL, getOpenSeaURL, getTheTreeOpenSeaURL } from "../../utils/networks";
 import { scrollToAnchor } from "../../utils/scrollToAnchor";
 import styles from './Home.module.css';
 
@@ -50,7 +50,7 @@ export default class TreeIntroduction extends Component<TreeIntroductionProps, T
         </div>
         <div>
           <Text block>
-            This process happens automatically, in a decentralized way, thanks to an open-source smart contract running on the Ethereum network.
+            This process happens automatically, in a decentralized way, thanks to an <Link href={getContractURL()}>open-source smart contract running on the Ethereum network</Link>.
           </Text>
           <Text>
             After reading all of this, you might want to <a href="#main" onClick={scrollToAnchor}>host The Tree now</a>. Or maybe you want to know more by visiting the <Link href="/faq">frequent asked questions about The Tree of Wealth</Link>.
