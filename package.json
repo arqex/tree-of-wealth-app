@@ -61,5 +61,8 @@
     "@types/react-modal": "^3.13.1",
     "source-map-explorer": "^2.5.3",
     "typechain": "^7.0.0"
-  }
+  },
+  "engines": {
+    "node": "16.x"
+  },
 }

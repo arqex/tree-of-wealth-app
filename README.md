@@ -1,37 +1,13 @@
-# The UI for The Tree of Wealth
-## Available Scripts
+# UI for The Tree of Wealth
 
-In the project directory, you can run:
+The Tree of Wealth is an NFT that always grows in price and distributes the earnings among anyone who have ever hold it. [Check this video for a better explanation on how the Tree of Wealth works](https://www.youtube.com/watch?v=Y8G5aGKc84I&ab_channel=AprendiendoWeb3). Here's the [video in Spanish](https://www.youtube.com/watch?v=1tS3PFlCGzc&list=PL6W-DT5AOQ0R2-yV3E9cViqZ5WHV4yDOA). Like the video if you liked it!
 
-### `npm start`
+This is the UI to interact easily with the Tree of Wealth contract, made with React. It lets the users connect their wallet, send the funds to host The Tree and withdraw any coin that the Tree keep for them.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Clone the repo and run `npm install` to install all the dependencies.
 
-### `npm test`
+The main configuration can be done in the `src/utils/networks.ts` file. There it's possible to define to if we want to use the mainnet or the testnet, and the address of the Tree of Wealth contract deployment.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+To run a local version of the UI, run `npm start` and it will open a new tab in your browser with the UI.
