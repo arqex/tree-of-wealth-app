@@ -27,6 +27,31 @@
     <title>treeofwealth.nft - The first NFT that distributes the wealth</title>
   </head>
   <body>
+    <!-- Google tag (gtag.js) -->
+    <script>
+      // Set the key depending on the domain
+      const googleKeys = {
+        'treeofwealth.deno.dev': 'G-H5QZ3E9QTB',
+        'treeofwealth.vercel.app': 'G-VX1D0W7EZL',
+        'treeofwealth.netlify.app': 'G-96W60LKXMM',
+        'treeofwealth.arweave.dev': 'G-83W9B8K0WZ',
+        'treeofwealth.ar-io.dev': 'G-5MHEGEWKD3',
+        'treeofwealth.g8way.io': 'G-X76VSRBRSE'
+      };
+      const key = googleKeys[window.host] || 'G-TD3L72KEQZ';
+
+      // Load script
+      const scrpt = document.createElement('script');
+      scrpt.src = 'https://www.googletagmanager.com/gtag/js?id=' + key;
+      scrpt.async = true;
+      document.head.appendChild(script);
+
+      // Initialize
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H5QZ3E9QTB');
+    </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
