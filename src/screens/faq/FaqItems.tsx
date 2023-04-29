@@ -66,7 +66,7 @@ const items = [
     answer: (
       <div>
         <Text block>
-          Once you have hosted The Tree, you will get { getPriceRaise() } ETH for every new account that become the host.
+          Once you have hosted The Tree, you will get { getPriceRaise() } ETH for every new account that become host.
         </Text>
         <Text block>
           To get those coins from the smart contract, you need to connect your wallet to the <Link href="/">Tree of Wealth website</Link> and the amount available to withdraw will appear.
@@ -138,13 +138,10 @@ const items = [
     answer: (
       <div>
         <Text block>
-          This site is just an interface to make simpler the usage of the smart contract of The Tree of Wealth. This interface is available in the following URLs:
-          <ul>
-            <li><Link href="https://treeofwealth.deno.dev/">https://treeofwealth.deno.dev/</Link></li>
-          </ul>
+          This site is just an interface to make simpler the usage of the smart contract of The Tree of Wealth. The main mirror for this app is <Link href="https://treeofwealth.deno.dev/">https://treeofwealth.deno.dev/</Link>, but there are more mirrors listed in the <Link href="https://github.com/arqex/tree-of-wealth-contract#frontend">contract repository</Link>.
         </Text>
         <Text block>
-          This interface is also open-source. You can run it yourself in case none of the domains above are available.
+          This interface is also open-source. You can run it yourself in case none of the domains above are available. The source code is available in <Link href="https://github.com/arqex/tree-of-wealth-app">this repository</Link>.
         </Text>
         <Text block>
           It's also possible to connect directly to the smart contract. The smart contract address in the Ethereum network is <Link href={getContractURL()}>{getContractAddress(getValidChainId())}</Link>.
