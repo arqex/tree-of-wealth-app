@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="The Tree of Wealth is a different NFT that runs in the Ethereum network. The price of The Tree of Wealth increases at every sell, and distributes the money among all the previous owners."
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description"
+    content="The Tree of Wealth is a different NFT that runs in the Ethereum network. The price of The Tree of Wealth increases at every sell, and distributes the money among all the previous owners." />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -24,37 +23,69 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>treeofwealth.nft - The first NFT that distributes the wealth</title>
-  </head>
-  <body>
-    <!-- Google tag (gtag.js) -->
-    <script>
-      // Set the key depending on the domain
-      const googleKeys = {
-        'treeofwealth.deno.dev': 'G-H5QZ3E9QTB',
-        'treeofwealth.vercel.app': 'G-VX1D0W7EZL',
-        'treeofwealth.netlify.app': 'G-96W60LKXMM',
-        'treeofwealth.arweave.dev': 'G-83W9B8K0WZ',
-        'treeofwealth.ar-io.dev': 'G-5MHEGEWKD3',
-        'treeofwealth.g8way.io': 'G-X76VSRBRSE'
-      };
-      const key = googleKeys[window.host] || 'G-TD3L72KEQZ';
+  <title>treeofwealth.nft - The first NFT that distributes the wealth</title>
+</head>
 
-      // Load script
-      const scrpt = document.createElement('script');
-      scrpt.src = 'https://www.googletagmanager.com/gtag/js?id=' + key;
-      scrpt.async = true;
-      document.head.appendChild(scrpt);
+<body>
+  <!-- Google tag (gtag.js) -->
+  <script>
+    // Set the key depending on the domain
+    const googleKeys = {
+      'treeofwealth.deno.dev': 'G-H5QZ3E9QTB',
+      'treeofwealth.vercel.app': 'G-VX1D0W7EZL',
+      'treeofwealth.netlify.app': 'G-96W60LKXMM',
+      'treeofwealth.arweave.dev': 'G-83W9B8K0WZ',
+      'treeofwealth.ar-io.dev': 'G-5MHEGEWKD3',
+      'treeofwealth.g8way.io': 'G-X76VSRBRSE'
+    };
+    const key = googleKeys[location.host] || 'G-TD3L72KEQZ';
 
-      // Initialize
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', key);
-    </script>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
+    // Load script
+    const scrpt = document.createElement('script');
+    scrpt.src = 'https://www.googletagmanager.com/gtag/js?id=' + key;
+    scrpt.async = true;
+    document.head.appendChild(scrpt);
+
+    // Initialize
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', key);
+  </script>
+  <noscript>
+    <p>You need to enable JavaScript to run this app.</p>
+    <div class="Home_introContent__2kjyB">
+      <div style="text-align: center;">
+        <h1 class="Text_text__2micW Text_type_h1__3j1dg Text_margin_l__R8j1q">What is The Tree of Wealth?</h1>
+      </div>
+      <div><span class="Text_text__2micW Text_block__1pKeU">The Tree of Wealth is a <b><a target="_blank"
+              rel="noopener norereffer" href="https://opensea.io/collection/treeofwealth">NFT collection</a></b> that
+          contains <b>one very special NFT</b> like no other. It's called <b><a target="_blank"
+              rel="noopener norereffer"
+              href="https://opensea.io/assets/ethereum/0x27E1F5CcC4F184A2Ca55B12353c06dA9e1803621/0">The
+              Tree</a></b>.</span><span class="Text_text__2micW Text_block__1pKeU">The wallet holding The Tree is called
+          <b>the host</b>. Unlike any other NFT, <b>hosts cannot sell nor transfer The Tree</b> as they
+          please.</span><span class="Text_text__2micW Text_block__1pKeU">Instead, anyone can become the new host of The
+          Tree <b>by paying 0.001 ETH more</b> than the current host.</span><span
+          class="Text_text__2micW Text_block__1pKeU">Everytime a new host pays for The Tree, <b>the coins are
+            distributed among all the previous hosts</b>. Everyone get 0.001 ETH.</span><span
+          class="Text_text__2micW">So, from the point of view of the hosts...</span><span class="Text_text__2micW">
+          <ul>
+            <li>The sooner you host The Tree, the cheaper it will be for you.</li>
+            <li>When The Tree changes hands, as a previous host, you get wealthier.</li>
+            <li>The more wallets host The Tree, the wealthier you get.</li>
+          </ul>
+        </span></div>
+      <div><span class="Text_text__2micW Text_block__1pKeU">This process happens automatically, in a decentralized way,
+          thanks to an <a target="_blank" rel="noopener norereffer"
+            href="https://etherscan.io/address/0x27E1F5CcC4F184A2Ca55B12353c06dA9e1803621#code">open-source smart
+            contract running on the Ethereum network</a>.</span><span class="Text_text__2micW">After reading all of
+          this, you might want to <a href="#main">host The Tree now</a>. Or maybe you want to know more by visiting the
+          <a href="/faq">frequent asked questions about The Tree of Wealth</a>.</span></div>
+    </div>
+  </noscript>
+  <div id="root"></div>
+  <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -64,5 +95,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  </body>
+</body>
+
 </html>
